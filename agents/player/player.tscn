@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://agents/player/player.png" type="Texture" id=1]
+[ext_resource path="res://agents/player/player.gd" type="Script" id=2]
+
+[node name="Player" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -25.2632 )
+texture = ExtResource( 1 )
+
+[node name="Tag" type="Label" parent="."]
+margin_left = -39.6126
+margin_top = -63.0826
+margin_right = -30.6126
+margin_bottom = -49.0826
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 10, 10 )
+text = "#"
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
