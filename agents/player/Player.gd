@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 enum POLARITIES { POSITIVE, NEGITIVE }
-const charge_speed = 0.2
+const charge_speed = 20
 const FRICTION = 0.99
 
 var inputs = ["PlayerAction","Player2Action"]
@@ -13,7 +13,7 @@ export var player_number = 1
 
 var velocity = Vector2()
 var charge = 0.0
-var rot_speed = 0.14
+var rot_speed = 7
 var speed = 10
 
 onready var sprite = $Sprite
@@ -35,18 +35,18 @@ func _launch():
 		charge = 0
 
 
-func _charge_up():
+func _charge_up(delta):
 	
 	if Input.is_action_pressed(inputs[player_number]):
 		charge += charge_speed
-		sprite.rotate(rot_speed)
+		sprite.rotate(rot_speed * delta)
 	else:
-		sprite.rotate(-rot_speed)
+		sprite.rotate(-rot_speed * delta)
 
 
 func _physics_process(delta):
 	
-	_charge_up()
+	_charge_up(delta)
 	_launch()
 	velocity = velocity * FRICTION
-	move_and_slide(velocity)
+	move_and_slide(velocity * delta)
