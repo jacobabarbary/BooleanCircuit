@@ -1,7 +1,10 @@
 extends KinematicBody2D
 
 enum POLARITIES { POSITIVE, NEGITIVE }
-const charge_speed = 20
+
+const MAX_CHARGE = 10
+const MIN_SPEED = 6000
+const charge_speed = 2
 const FRICTION = 0.99
 
 var inputs = ["PlayerAction","Player2Action"]
@@ -12,9 +15,9 @@ export(POLARITIES) var polaraty = POLARITIES.POSITIVE
 export var player_number = 1
 
 var velocity = Vector2()
-var charge = 0.0
-var rot_speed = 7
-var speed = 10
+var charge = 0
+var rot_speed = 2
+var speed = MIN_SPEED
 
 onready var sprite = $Sprite
 onready var connector = $Connector
@@ -28,25 +31,43 @@ func _ready():
 			sprite.texture = negative_texture
 
 
-func _launch():
+func _physics_process(delta):
+	_launch()
+	_charge_up(delta)
 	
-	if Input.is_action_just_released(inputs[player_number]):
-		velocity = Vector2(0,speed).rotated(sprite.rotation) * charge
+	sprite.rotate( input_rotation() * delta )
+	move_and_slide( movement() * delta )
+
+
+
+
+func _launch():
+	if button_just_released():
+		speed = speed * charge
 		charge = 0
 
-
 func _charge_up(delta):
-	
-	if Input.is_action_pressed(inputs[player_number]):
-		charge += charge_speed
-		sprite.rotate(rot_speed * delta)
-	else:
-		sprite.rotate(-rot_speed * delta)
+	if button_pressed():
+		charge = min( charge + (charge_speed * delta), MAX_CHARGE )
 
 
-func _physics_process(delta):
+
+func input_rotation():
+	return ( ( int(button_pressed()) *2 ) - 1 ) * rot_speed
 	
-	_charge_up(delta)
-	_launch()
-	velocity = velocity * FRICTION
-	move_and_slide(velocity * delta)
+func movement()->Vector2:
+	speed = max( MIN_SPEED, speed * FRICTION)
+	return Vector2( 0 , speed ).rotated(sprite.rotation)
+	
+	
+	
+func button_pressed()->bool:
+	return Input.is_action_pressed(inputs[player_number])
+	
+func button_just_released()->bool:
+	return Input.is_action_just_released(inputs[player_number])
+
+
+
+
+
