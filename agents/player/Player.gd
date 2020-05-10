@@ -31,7 +31,7 @@ func _ready():
 func _launch():
 	
 	if Input.is_action_just_released(inputs[player_number]):
-		velocity = Vector2(0,speed).rotated(rotation) * charge
+		velocity = Vector2(0,speed).rotated(sprite.rotation) * charge
 		charge = 0
 
 
@@ -39,9 +39,9 @@ func _charge_up():
 	
 	if Input.is_action_pressed(inputs[player_number]):
 		charge += charge_speed
-		rotate(rot_speed)
+		sprite.rotate(rot_speed)
 	else:
-		rotate(-rot_speed)
+		sprite.rotate(-rot_speed)
 
 
 func _physics_process(delta):
