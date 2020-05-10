@@ -1,23 +1,42 @@
 extends Node2D
 
-var MAX_DIST = 200
+enum POLARITIES { POSITIVE, NEGITIVE }
 
 var target = null
-onready var ray = $Ray
+var connection = null
+var collider = null
 
+export(POLARITIES) var polaraty = POLARITIES.POSITIVE
+
+onready var ray = $Ray
+onready var end = $End
+onready var line = $Line
+
+func _physics_process(delta):
+	if target && !connection:
+		
+		cast_ray(target.global_position)
+		end.global_position = ray.get_collision_point()
+		
+		collider = ray.get_collider()
+		if collider && collider.name == "HitBox":
+			connection = target.get_parent()
+			line.visible = polaraty == POLARITIES.POSITIVE
+	draw_connection()
+
+func draw_connection()->void:
+	if connection && polaraty == POLARITIES.POSITIVE:
+		line.points = [Vector2.ZERO, connection.global_position - global_position]
 
 func _on_DetectBox_area_entered(area):
-	cast_ray(area.global_position)
-	var thing = ray.get_collider()
-	if thing:
-		print(thing.name)
-	
-#	print("keys", target.name)
-
-func cast_ray(pos: Vector2)->void:
-	ray.cast_to = ( pos - global_position ).normalized() * MAX_DIST
+	target = area
 
 func _on_DetectBox_area_exited(area):
-	target = null
+	if area == target:
+		target = null
+		connection = null
+		line.visible = false
 
+func cast_ray(pos: Vector2)->void:
+	ray.cast_to = pos - ray.global_position
 
