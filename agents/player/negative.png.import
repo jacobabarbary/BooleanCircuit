@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/negative.png-ae43987a354a5d693df2cc984a3b0f92.stex"
+path="res://.import/negative.png-9f039c93809622c678681e82f6cecb88.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://agents/negative/negative.png"
-dest_files=[ "res://.import/negative.png-ae43987a354a5d693df2cc984a3b0f92.stex" ]
+source_file="res://agents/player/negative.png"
+dest_files=[ "res://.import/negative.png-9f039c93809622c678681e82f6cecb88.stex" ]
 
 [params]
 

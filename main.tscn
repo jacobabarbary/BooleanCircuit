@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://agents/positive/Positive.tscn" type="PackedScene" id=4]
-[ext_resource path="res://agents/negative/Negative.tscn" type="PackedScene" id=5]
+[ext_resource path="res://agents/player/Player.tscn" type="PackedScene" id=4]
 
 [node name="main" type="Node2D"]
 
 [node name="Positive" parent="." instance=ExtResource( 4 )]
-position = Vector2( 726.108, 283.553 )
+position = Vector2( 317.724, 277.091 )
 
-[node name="Negative" parent="." instance=ExtResource( 5 )]
-position = Vector2( 251.753, 288.853 )
+[node name="Negative" parent="." instance=ExtResource( 4 )]
+position = Vector2( 726.108, 283.553 )
+polaraty = 1
+player_number = 0

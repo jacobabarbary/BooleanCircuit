@@ -16,7 +16,7 @@
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="negative.svg"
-   inkscape:export-filename="/home/sean/code/BooleanCircuit/agents/negative/negative.png"
+   inkscape:export-filename="/home/sean/code/BooleanCircuit/agents/player/negative.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -28,9 +28,9 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="118.11451"
-     inkscape:cy="142.36579"
+     inkscape:zoom="1.979899"
+     inkscape:cx="55.113767"
+     inkscape:cy="141.46969"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -62,7 +62,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -89,7 +89,7 @@
     </g>
     <g
        id="g1075"
-       transform="translate(-67.879151,-67.827172)">
+       transform="matrix(1,0,0,-1,-67.879151,593.40691)">
       <path
          sodipodi:nodetypes="cscscc"
          inkscape:connector-curvature="0"
