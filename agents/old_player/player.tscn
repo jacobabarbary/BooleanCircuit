@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://agents/player/player.png" type="Texture" id=1]
-[ext_resource path="res://agents/player/player.gd" type="Script" id=2]
+[ext_resource path="res://agents/old_player/player.gd" type="Script" id=1]
+[ext_resource path="res://agents/old_player/player.png" type="Texture" id=2]
 
 [node name="Player" type="Node2D"]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
+tag = "c"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -25.2632 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="Tag" type="Label" parent="."]
 margin_left = -39.6126
