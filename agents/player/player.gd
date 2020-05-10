@@ -6,4 +6,4 @@ func _ready():
 	set_tag(tag)
 
 func set_tag(val: String):
-	$Tag.text = tag
+	$Control/CenterContainer/Tag.text = tag
