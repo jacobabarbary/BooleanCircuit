@@ -42,4 +42,5 @@ Player2Action={
 
 [rendering]
 
+environment/default_clear_color=Color( 0.101961, 0.0705882, 0.223529, 1 )
 environment/default_environment="res://default_env.tres"

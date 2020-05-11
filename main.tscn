@@ -5,6 +5,9 @@
 
 [node name="main" type="Node2D"]
 
+[node name="Level" parent="." instance=ExtResource( 1 )]
+position = Vector2( 74.8919, -17.1883 )
+
 [node name="Positive" parent="." instance=ExtResource( 4 )]
 position = Vector2( 317.724, 277.091 )
 
@@ -12,6 +15,3 @@ position = Vector2( 317.724, 277.091 )
 position = Vector2( 726.108, 283.553 )
 polaraty = 1
 player_number = 0
-
-[node name="Level" parent="." instance=ExtResource( 1 )]
-position = Vector2( 74.8919, -17.1883 )
