@@ -37,7 +37,8 @@ Player2Action={
 [layer_names]
 
 2d_physics/layer_1="default"
-2d_physics/layer_2="connectors"
+2d_physics/layer_3="connection_ray"
+2d_physics/layer_4="connection_area"
 
 [rendering]
 
