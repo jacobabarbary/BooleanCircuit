@@ -19,7 +19,7 @@ color = Color( 1, 0.317647, 0.333333, 1 )
 player_number = 0
 
 [node name="Player2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 865.562, 320.645 )
+position = Vector2( 871.435, 314.772 )
 color = Color( 0.27451, 0.533333, 0.996078, 1 )
 player_number = 0
 
