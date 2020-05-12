@@ -24,11 +24,11 @@ color = Color( 0.27451, 0.533333, 0.996078, 1 )
 player_number = 0
 
 [node name="Player3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 934.628, 199.388 )
+position = Vector2( 537.125, 149.283 )
 skin = 9
 color = Color( 0.533333, 0.466667, 1, 1 )
 
 [node name="Player4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 575.388, 306.56 )
+position = Vector2( 349.914, 116.16 )
 skin = 11
 color = Color( 0.490196, 0.972549, 0.447059, 1 )
