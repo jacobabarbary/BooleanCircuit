@@ -1,9 +1,7 @@
 extends Node2D
 
-var target = null
 var nearby: Array = []
 var connection = null
-var collider = null
 
 onready var line = $Line
 onready var hitbox = $HitBox
