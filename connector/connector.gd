@@ -1,40 +1,48 @@
 extends Node2D
 
 var target = null
+var nearby: Array = []
 var connection = null
 var collider = null
 
 
 onready var ray = $Ray
-onready var end = $End
 onready var line = $Line
 
 func _physics_process(delta):
-	if target && !connection:
-		
-		cast_ray(target.global_position)
-		end.global_position = ray.get_collision_point()
-		
-		collider = ray.get_collider()
-		if collider && collider.name == "HitBox":
-			connection = target.get_parent()
-			line.visible = true
-			
 	draw_connection()
 
+func try_connection(area = null):
+	connection = null
+	line.visible = false
+	nearby = $DetectBox.get_overlapping_areas()
+
+		
+	for targ in nearby:
+		
+		if targ != area && targ != $HitBox:
+			print("targ ", targ.name)
+
+#			TODO: handle raycast correctly
+#				i think you will need to use a snapshot.
+
+			connection = targ.get_parent()
+			line.visible = true
+			return
+
+
+
 func draw_connection()->void:
-	if connection:
+	if connection != null:
 		line.points = [Vector2.ZERO, connection.global_position - global_position]
+		$Sprite.modulate = Color.red
+	else:
+		$Sprite.modulate = Color.blue
 
 func _on_DetectBox_area_entered(area):
-	target = area
+	try_connection()
 
 func _on_DetectBox_area_exited(area):
-	if area == target:
-		target = null
-		connection = null
-		line.visible = false
+	try_connection(area)
 
-func cast_ray(pos: Vector2)->void:
-	ray.cast_to = pos - ray.global_position
 

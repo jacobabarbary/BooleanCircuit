@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://connector/connector.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 409.462
+radius = 250.164
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -25,7 +26,7 @@ shape = SubResource( 1 )
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 31
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource( 2 )
@@ -36,5 +37,10 @@ position = Vector2( 0, 203.014 )
 [node name="Line" type="Line2D" parent="."]
 width = 4.0
 default_color = Color( 0.301961, 0.388235, 0.835294, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -38.4378, -2.83994 )
+scale = Vector2( 0.394207, 0.394207 )
+texture = ExtResource( 1 )
 [connection signal="area_entered" from="DetectBox" to="." method="_on_DetectBox_area_entered"]
 [connection signal="area_exited" from="DetectBox" to="." method="_on_DetectBox_area_exited"]
