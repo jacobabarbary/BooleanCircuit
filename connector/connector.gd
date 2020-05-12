@@ -1,12 +1,9 @@
 extends Node2D
 
-enum POLARITIES { POSITIVE, NEGITIVE }
-
 var target = null
 var connection = null
 var collider = null
 
-export(POLARITIES) var polaraty = POLARITIES.POSITIVE
 
 onready var ray = $Ray
 onready var end = $End
@@ -21,11 +18,12 @@ func _physics_process(delta):
 		collider = ray.get_collider()
 		if collider && collider.name == "HitBox":
 			connection = target.get_parent()
-			line.visible = polaraty == POLARITIES.POSITIVE
+			line.visible = true
+			
 	draw_connection()
 
 func draw_connection()->void:
-	if connection && polaraty == POLARITIES.POSITIVE:
+	if connection:
 		line.points = [Vector2.ZERO, connection.global_position - global_position]
 
 func _on_DetectBox_area_entered(area):

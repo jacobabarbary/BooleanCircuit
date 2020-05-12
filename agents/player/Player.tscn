@@ -1,23 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://agents/player/Player.gd" type="Script" id=1]
-[ext_resource path="res://agents/player/positive.png" type="Texture" id=2]
+[ext_resource path="res://agents/player/player.png" type="Texture" id=2]
 [ext_resource path="res://connector/connector.tscn" type="PackedScene" id=3]
-[ext_resource path="res://agents/player/negative.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 35.6045
+radius = 17.116
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-positive_texture = ExtResource( 2 )
-negative_texture = ExtResource( 4 )
 
 [node name="Connector" parent="." instance=ExtResource( 3 )]
 
-[node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.338173, 0.338173 )
-texture = ExtResource( 2 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4.40126 )
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.407843, 0.407843, 0.407843, 1 )
+scale = Vector2( 0.719169, 0.719169 )
+texture = ExtResource( 2 )
+vframes = 3
+hframes = 4

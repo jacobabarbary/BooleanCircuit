@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://level/level_1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=2]
 [ext_resource path="res://agents/player/Player.tscn" type="PackedScene" id=4]
 
 [node name="main" type="Node2D"]
@@ -8,10 +9,26 @@
 [node name="Level" parent="." instance=ExtResource( 1 )]
 position = Vector2( 74.8919, -17.1883 )
 
-[node name="Positive" parent="." instance=ExtResource( 4 )]
-position = Vector2( 317.724, 277.091 )
+[node name="Tower" parent="." instance=ExtResource( 2 )]
+position = Vector2( 667.888, 351.133 )
 
-[node name="Negative" parent="." instance=ExtResource( 4 )]
-position = Vector2( 726.108, 283.553 )
-polaraty = 1
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 714.283, 153.09 )
+skin = 3
+color = Color( 1, 0.317647, 0.333333, 1 )
 player_number = 0
+
+[node name="Player2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 865.562, 320.645 )
+color = Color( 0.27451, 0.533333, 0.996078, 1 )
+player_number = 0
+
+[node name="Player3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 934.628, 199.388 )
+skin = 9
+color = Color( 0.533333, 0.466667, 1, 1 )
+
+[node name="Player4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 575.388, 306.56 )
+skin = 11
+color = Color( 0.490196, 0.972549, 0.447059, 1 )

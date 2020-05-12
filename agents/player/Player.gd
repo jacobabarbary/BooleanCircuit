@@ -9,10 +9,13 @@ const FRICTION = 0.99
 
 var inputs = ["PlayerAction","Player2Action"]
 
-export(Texture) var positive_texture
-export(Texture) var negative_texture
-export(POLARITIES) var polaraty = POLARITIES.POSITIVE
-export var player_number = 1
+export(int, 
+	"#", 'o', '-', 'yen' , '^', 'x' , '+', 'yang', 'sad', 'happy', 'eyes', 'skull'
+	) var skin = 0 setget set_skin
+	
+export(Color) var color = Color.white
+	
+export(int, "PlayerAction","Player2Action") var player_number = 1
 
 var velocity = Vector2()
 var charge = 0
@@ -23,13 +26,8 @@ onready var sprite = $Sprite
 onready var connector = $Connector
 
 func _ready():
-	connector.polaraty = polaraty
-	match polaraty:
-		POLARITIES.POSITIVE:
-			sprite.texture = positive_texture
-		POLARITIES.NEGITIVE:
-			sprite.texture = negative_texture
-
+	set_skin(skin)
+	set_color(color)
 
 func _physics_process(delta):
 	_launch()
@@ -37,8 +35,6 @@ func _physics_process(delta):
 	
 	sprite.rotate( input_rotation() * delta )
 	move_and_slide( movement() * delta )
-
-
 
 
 func _launch():
@@ -69,5 +65,12 @@ func button_just_released()->bool:
 
 
 
+func set_color(col: Color)->void:
+	color = col
+	sprite.modulate = col
+
+func set_skin(index)->void:
+	skin = index
+	$Sprite.set_frame(index)
 
 
