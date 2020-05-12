@@ -34,5 +34,7 @@ shape = SubResource( 2 )
 position = Vector2( 0, 203.014 )
 
 [node name="Line" type="Line2D" parent="."]
+width = 4.0
+default_color = Color( 0.301961, 0.388235, 0.835294, 1 )
 [connection signal="area_entered" from="DetectBox" to="." method="_on_DetectBox_area_entered"]
 [connection signal="area_exited" from="DetectBox" to="." method="_on_DetectBox_area_exited"]
