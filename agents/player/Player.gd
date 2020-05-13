@@ -5,7 +5,7 @@ enum POLARITIES { POSITIVE, NEGITIVE }
 onready var sprite = $Sprite
 onready var connector = $Connector
 
-var inputs_pressed = []
+var inputs_pressed = [null, null, null]
 var inputs = ["PlayerAction","Player2Action"]
 var ray_connected
 
@@ -24,14 +24,15 @@ func _ready():
 	set_skin(skin)
 	set_color(color)
 
-func _input(event):
-	
+func _process(delta):
 	inputs_pressed = [
 		Input.is_action_pressed(inputs[player_number]),
 		Input.is_action_just_released(inputs[player_number]),
 		Input.is_action_just_pressed(inputs[player_number])]
+		
 
 func _physics_process(delta):
+
 	aim()
 	launch()
 	
