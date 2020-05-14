@@ -14,7 +14,7 @@ export(int,
 	) var skin = 0 setget set_skin
 	
 export(Color) var color = Color.white
-	
+export(int) var player_friction = 0.1
 export(int, "PlayerAction","Player2Action") var player_number = 1
 
 var rot_speed = 0.1
@@ -23,20 +23,25 @@ var speed = 250
 func _ready():
 	set_skin(skin)
 	set_color(color)
+	
 
 func _process(delta):
 	inputs_pressed = [
 		Input.is_action_pressed(inputs[player_number]),
 		Input.is_action_just_released(inputs[player_number]),
 		Input.is_action_just_pressed(inputs[player_number])]
-		
+
+
 
 func _physics_process(delta):
-
 	aim()
 	launch()
-	
+	_friction(delta)
 
+func _friction(delta):
+	linear_velocity = linear_velocity * 59 * delta
+#	add_central_force( -(linear_velocity * 0.5 * delta))
+	
 func aim():
 	if inputs_pressed[0]:
 		sprite.rotate(rot_speed)
