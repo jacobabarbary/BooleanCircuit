@@ -11,7 +11,6 @@ export(Array) var targets: Array
 onready var camera = $Camera
 
 
-
 func _process(delta):
 	_position()
 	_zoom()
