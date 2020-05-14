@@ -7,4 +7,3 @@ script = ExtResource( 1 )
 
 [node name="Camera" type="Camera2D" parent="."]
 smoothing_enabled = true
-smoothing_speed = 1.0
