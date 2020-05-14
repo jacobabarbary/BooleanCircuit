@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="BooleanCircuit"
-run/main_scene="res://menu.tscn"
+run/main_scene="res://gui/menu.tscn"
 config/icon="res://icon.png"
 
 [input]
