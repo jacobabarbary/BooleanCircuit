@@ -48,7 +48,7 @@ func aim():
 
 func launch():
 	if inputs_pressed[1]:
-		linear_velocity = Vector2(0,1).rotated(sprite.rotation) * speed
+		linear_velocity += Vector2(0,1).rotated(sprite.rotation) * speed
 		rot_speed = -rot_speed
 
 func set_color(col: Color)->void:
