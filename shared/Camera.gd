@@ -1,7 +1,7 @@
 extends Node2D
 
 const MIN_ZOOM = 0.8
-const ZOOM_SCALE_OFFSET = 0.003
+const ZOOM_SCALE_OFFSET = 0.002
 
 var zoom: float = 1
 var sum: Vector2 = Vector2.ZERO
