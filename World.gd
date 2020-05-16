@@ -8,6 +8,9 @@ var lvl_num: int = 1
 func _on_start_level(num):
 	load_level(num)
 
+func _on_end_game():
+	remove_current_level()
+	
 
 
 func load_level(num: int):

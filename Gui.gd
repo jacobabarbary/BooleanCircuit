@@ -8,7 +8,9 @@ func _on_start_level(num):
 
 func _on_gui_change(gui_name):
 	load_gui(gui_name)
-
+	
+func _on_end_game():
+	load_gui('menu')
 
 
 func load_gui(file_name: String):
