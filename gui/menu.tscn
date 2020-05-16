@@ -40,5 +40,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="button" parent="VBoxContainer" instance=ExtResource( 2 )]
+[node name="Play" parent="VBoxContainer" instance=ExtResource( 2 )]
+ChageSceneTo = "res://level/level_1.tscn"
+
+[node name="Levels" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 100.0
+margin_bottom = 123.0
+text = "Levels"
 ChageSceneTo = "res://gui/level_selector.tscn"
