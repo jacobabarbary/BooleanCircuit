@@ -3,6 +3,7 @@ extends RigidBody2D
 const MAX_SPEED = 1000
 const DISCONNECTED_COLOR = Color.gray
 
+
 enum POLARITIES { POSITIVE, NEGITIVE }
 
 export(int, "#", 'o', '-', 'yen' , '^', 'x' , '+', 
@@ -15,8 +16,9 @@ export(int, "PlayerAction","Player2Action") var player_number = 1
 var inputs_pressed = [null, null, null]
 var inputs = ["PlayerAction","Player2Action"]
 var rot_speed = 0.1
-var speed = 300
+var speed = 150
 var charge = 1
+var CHARGE_SPEED = speed / 2
 
 onready var sprite = $Sprite
 onready var connector = $Connector
@@ -46,7 +48,7 @@ func _friction(delta):
 func aim(delta):
 	if inputs_pressed[0]:
 		sprite.rotate(rot_speed)
-		charge += (100 * delta)
+		charge += (CHARGE_SPEED * delta)
 
 func launch():
 	if inputs_pressed[1]:
