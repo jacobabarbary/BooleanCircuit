@@ -40,7 +40,7 @@ func _physics_process(delta):
 	_friction(delta)
 
 func _friction(delta):
-	linear_velocity = linear_velocity * 0.99
+	linear_velocity = linear_velocity - Vector2.ZERO,linear_velocity * 0.01 * delta
 #	add_central_force( -(linear_velocity * 0.5 * delta))
 	
 func aim():
