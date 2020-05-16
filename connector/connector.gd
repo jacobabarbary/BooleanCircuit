@@ -9,7 +9,7 @@ onready var line = $Line
 onready var hitbox = $HitBox
 onready var detectbox = $DetectBox
 
-signal is_connected
+signal connection_changed(val)
 
 func _physics_process(delta): 
 	test_connection()
@@ -29,7 +29,7 @@ func _on_DetectBox_area_exited(area):
 func _connection():
 	try_new_connection()
 	
-	emit_signal("is_connected",has_connection())
+	emit_signal("connection_changed",has_connection())
 
 func test_connection():
 #	TODO: break the connection if a wall is between the two connectors

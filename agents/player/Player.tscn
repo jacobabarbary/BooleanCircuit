@@ -30,3 +30,4 @@ scale = Vector2( 0.719169, 0.719169 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 4
+[connection signal="connection_changed" from="Connector" to="." method="_on_Connector_connection_changed"]
