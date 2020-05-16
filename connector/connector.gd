@@ -2,14 +2,21 @@ extends Node2D
 
 var nearby: Array = []
 var connection = null
+var last_connection
+export var is_powered = false
 
 onready var line = $Line
 onready var hitbox = $HitBox
 onready var detectbox = $DetectBox
 
+signal is_connected
+
 func _physics_process(delta): 
 	test_connection()
 	update_line()
+#	if not connection == null:
+#		if not is_connected("is_connected",connection.get_parent(),"on_connected"):
+#			connect("is_connected",connection.get_parent(),"on_connected")
 
 func _on_DetectBox_area_entered(area):
 	update_nearby()
@@ -21,11 +28,9 @@ func _on_DetectBox_area_exited(area):
 
 func _connection():
 	try_new_connection()
-#	when the connection state changes:
-#	TODO: emit a signal disconnected
-#	TODO: emit a signal connected
-	pass
 	
+	emit_signal("is_connected",has_connection())
+
 func test_connection():
 #	TODO: break the connection if a wall is between the two connectors
 	pass 

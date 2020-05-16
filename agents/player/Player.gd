@@ -7,7 +7,7 @@ onready var connector = $Connector
 
 var inputs_pressed = [null, null, null]
 var inputs = ["PlayerAction","Player2Action"]
-var ray_connected
+var ray_connected = true
 
 export(int, 
 	"#", 'o', '-', 'yen' , '^', 'x' , '+', 'yang', 'sad', 'happy', 'eyes', 'skull'
@@ -18,7 +18,7 @@ export(int) var player_friction = 0.1
 export(int, "PlayerAction","Player2Action") var player_number = 1
 
 var rot_speed = 0.1
-var speed = 250
+var speed = 300
 
 func _ready():
 	set_skin(skin)
@@ -34,21 +34,22 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	aim()
-	launch()
+	if ray_connected:
+		aim()
+		launch()
 	_friction(delta)
 
 func _friction(delta):
-	linear_velocity = linear_velocity * 59 * delta
+	linear_velocity = linear_velocity * 59.009 * delta
 #	add_central_force( -(linear_velocity * 0.5 * delta))
-	
+
 func aim():
 	if inputs_pressed[0]:
 		sprite.rotate(rot_speed)
 
 func launch():
 	if inputs_pressed[1]:
-		linear_velocity = Vector2(0,1).rotated(sprite.rotation) * speed
+		linear_velocity += Vector2(0,1).rotated(sprite.rotation) * speed
 		rot_speed = -rot_speed
 
 func set_color(col: Color)->void:
@@ -59,5 +60,5 @@ func set_skin(index)->void:
 	skin = index
 	$Sprite.set_frame(index)
 
-func _on_ray_connected(is_ray_connected)->void:
+func on_connected(is_ray_connected)->void:
 	ray_connected = is_ray_connected
