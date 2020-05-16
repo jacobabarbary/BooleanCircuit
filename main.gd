@@ -1,4 +1,11 @@
-extends Node2D
+extends Node
 
-onready var positive = $Positive
+onready var world = $World
+onready var gui = $Gui
+
+func _ready():
+	call_deferred("init")
+
+func init():
+	gui.load_gui('menu')
 
