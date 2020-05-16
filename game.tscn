@@ -12,7 +12,7 @@ script = ExtResource( 1 )
 ]]
 script = ExtResource( 2 )
 
-[node name="Gui" type="Node" parent="." groups=[
+[node name="Gui" type="CanvasLayer" parent="." groups=[
 "GuiChanger",
 "LevelStarter",
 ]]
