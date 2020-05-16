@@ -19,6 +19,8 @@ export(int, "PlayerAction","Player2Action") var player_number = 1
 
 var rot_speed = 0.1
 var speed = 250
+var charge = 1
+
 
 func _ready():
 	set_skin(skin)
@@ -32,14 +34,13 @@ func _process(delta):
 		Input.is_action_just_pressed(inputs[player_number])]
 
 
-
 func _physics_process(delta):
 	aim()
 	launch()
 	_friction(delta)
 
 func _friction(delta):
-	linear_velocity = linear_velocity * 59 * delta
+	linear_velocity = linear_velocity * 0.99
 #	add_central_force( -(linear_velocity * 0.5 * delta))
 	
 func aim():
