@@ -18,9 +18,6 @@ signal disconnected()
 func _physics_process(delta): 
 	test_connection()
 	update_line()
-#	if not connection == null:
-#		if not is_connected("is_connected",connection.get_parent(),"on_connected"):
-#			connect("is_connected",connection.get_parent(),"on_connected")
 
 func _on_DetectBox_area_entered(area):
 	update_nearby()
@@ -40,7 +37,7 @@ func _ray_connection_signals()->void:
 	if ray_connected != ray_was_connected || ray_was_connected == null:
 		emit_signal("connection_changed",ray_connected)
 		if ray_connected:
-			emit_signal("connected")			
+			emit_signal("connected")
 		else:
 			emit_signal("disconnected")
 
