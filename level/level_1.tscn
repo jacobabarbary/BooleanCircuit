@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://objects/fence/Fence.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=2]
@@ -6,8 +6,6 @@
 [ext_resource path="res://level/level.gd" type="Script" id=4]
 [ext_resource path="res://shared/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=6]
-[ext_resource path="res://door.tscn" type="PackedScene" id=7]
-[ext_resource path="res://trigger.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 10.0
@@ -63,12 +61,6 @@ position = Vector2( 514.415, 300.632 )
 
 [node name="Tower" parent="." instance=ExtResource( 2 )]
 position = Vector2( 587.681, 322.408 )
-
-[node name="trigger" parent="." instance=ExtResource( 8 )]
-position = Vector2( 538.206, -334.876 )
-
-[node name="door" parent="." instance=ExtResource( 7 )]
-position = Vector2( 242.617, -294.932 )
 
 [editable path="Walls/Wall"]
 
