@@ -6,10 +6,8 @@ const DISCONNECTED_COLOR = Color.gray
 
 enum POLARITIES { POSITIVE, NEGITIVE }
 
-
-export(int, 
-	"#", 'o', '-', 'yen' , '^', 'x' , '+', 'yang', 'sad', 'happy', 'eyes', 'skull'
-	) var skin = 0 setget set_skin
+export(int, "#", 'o', '-', 'yen' , '^', 'x' , '+', 
+	'yang', 'sad', 'happy', 'eyes', 'skull' ) var skin = 0 setget set_skin
 	
 export(Color) var color = Color.white
 export(int) var player_friction = 0.1
@@ -17,10 +15,10 @@ export(int, "PlayerAction","Player2Action") var player_number = 1
 
 var inputs_pressed = [null, null, null]
 var inputs = ["PlayerAction","Player2Action"]
-var ray_connected = true
 var rot_speed = 0.1
-var speed = 300
+var speed = 150
 var charge = 1
+var CHARGE_SPEED = speed / 2
 
 onready var sprite = $Sprite
 onready var connector = $Connector
@@ -38,7 +36,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if ray_connected:
+	if connector.ray_connected:
 		aim(delta)
 		launch()
 	_friction(delta)
@@ -50,7 +48,7 @@ func _friction(delta):
 func aim(delta):
 	if inputs_pressed[0]:
 		sprite.rotate(rot_speed)
-		charge += (100 * delta)
+		charge += (CHARGE_SPEED * delta)
 
 func launch():
 	if inputs_pressed[1]:
@@ -66,10 +64,8 @@ func set_skin(index)->void:
 	skin = index
 	$Sprite.set_frame(index)
 
-func _on_Connector_connection_changed(val):
-	ray_connected = val
-	if ray_connected:
-		$Sprite.modulate = color
-	else:
-		$Sprite.modulate = DISCONNECTED_COLOR
+func _on_Connector_connected():
+	$Sprite.modulate = color
 
+func _on_Connector_disconnected():
+	$Sprite.modulate = DISCONNECTED_COLOR
