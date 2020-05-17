@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://door.gd" type="Script" id=1]
+[ext_resource path="res://objects/door/door.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.551, 27.9372 )
 
 [node name="door" type="StaticBody2D" groups=[
 "door",
@@ -13,3 +15,8 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.794403, -1.19164 )
+texture = ExtResource( 2 )
+vframes = 2
+hframes = 2
+frame = 2

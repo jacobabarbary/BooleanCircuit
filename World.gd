@@ -5,7 +5,6 @@ const LEVEL_PATH = 'res://level/level_%d.tscn'
 var lvl_num: int = 1
 
 func _on_reset_level():
-	print('wowoowowo')
 	load_level(lvl_num)
 
 func _on_start_level(num):

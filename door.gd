@@ -16,5 +16,4 @@ func on_triggered(type,triggered):
 	else:
 		collider.disabled = false
 		sprite.visible = true
-	
-	print(type,triggered)
+
