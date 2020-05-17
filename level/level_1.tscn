@@ -18,41 +18,41 @@ script = ExtResource( 4 )
 
 [node name="Walls" type="Node2D" parent="."]
 
-[node name="Wall" parent="Walls" instance=ExtResource( 6 )]
-
-[node name="CollisionPolygon2D" parent="Walls/Wall" index="0"]
-position = Vector2( 1112.42, 494.407 )
-polygon = PoolVector2Array( 24.8722, -151.566, 33.9161, 158.945, -345.933, 158.945, -326.337, 30.8217, -118.325, 44.3878, -109.281, -76.1992 )
-
 [node name="Wall2" parent="Walls" instance=ExtResource( 6 )]
 
 [node name="CollisionPolygon2D" parent="Walls/Wall2" index="0"]
-polygon = PoolVector2Array( 1052.88, 68.5052, 663.983, 88.1006, 576.558, -89.7652, 1153.87, -67.1552, 1125.23, 65.4905, 1117.69, 208.688, 1018.21, 305.157, 980.524, 127.291 )
+polygon = PoolVector2Array( 1052.88, 68.5052, 663.983, 88.1006, 644.87, -89.6658, 1153.87, -67.1552, 1125.23, 65.4905, 1117.69, 208.688, 1018.21, 305.157, 980.524, 127.291 )
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 6 )]
 
 [node name="CollisionPolygon2D" parent="Walls/Wall3" index="0"]
-position = Vector2( -658.707, 482.348 )
-polygon = PoolVector2Array( 1045.34, -529.908, 590.124, -535.937, 558.47, -407.813, 590.124, -125.941, 618.763, 74.5346, 588.202, 212.504, 870.462, 175.76, 858.771, -79.7775, 984.035, -206.711, 798.645, -260.157, 788.624, -425.505, 892.175, -420.494 )
+position = Vector2( -634.907, 487.108 )
+polygon = PoolVector2Array( 1105.24, -556.147, 590.124, -535.937, 558.47, -407.813, 590.124, -125.941, 618.763, 74.5346, 588.202, 212.504, 1083.85, 244.629, 1065.19, 68.5107, 977.711, -111.107, 798.645, -260.157, 788.624, -425.505, 1125.87, -408.587 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 6 )]
+
+[node name="CollisionPolygon2D" parent="Walls/Wall4" index="0"]
+position = Vector2( -634.907, 487.108 )
+polygon = PoolVector2Array( 1374.98, -232.466, 1359.11, 19.8142, 1373.39, 122.948, 1467, 140.401, 1520.95, -40.4793, 1528.88, -248.333, 1478.11, -310.213 )
 
 [node name="Fencing" type="Node2D" parent="."]
 
 [node name="Fence" parent="Fencing" instance=ExtResource( 1 )]
 
 [node name="CollisionPolygon2D" parent="Fencing/Fence" index="0"]
-polygon = PoolVector2Array( 529.09, 549.545, 509.048, 407.58, 594.227, 332.422, 679.406, 404.239, 639.322, 587.959, 784.627, 626.373, 771.266, 749.966, 313.637, 746.626, 316.977, 604.661 )
+polygon = PoolVector2Array( 611.634, 338.901, 530.713, 399.194, 541.82, 645.128, 533.887, 826.009, 644.954, 845.049, 932.141, 856.155, 1038.45, 722.875, 1071.77, 488.048, 1067.01, 408.714, 1049.55, 351.594, 997.194, 357.941, 1017.82, 526.128, 1008.3, 691.142, 952.768, 795.862, 840.114, 813.315, 706.834, 810.142, 581.487, 773.649, 586.247, 616.568, 598.94, 467.421, 651.3, 408.714 )
 
 [node name="Players" type="Node2D" parent="."]
 
 [node name="player" parent="Players" instance=ExtResource( 3 )]
-position = Vector2( 710.041, 224.828 )
+position = Vector2( 673.548, 181.988 )
 rotation = -0.0222921
 physics_material_override = SubResource( 1 )
 skin = 6
 color = Color( 1, 0.341176, 0.819608, 1 )
 
 [node name="player2" parent="Players" instance=ExtResource( 3 )]
-position = Vector2( 347.926, 428.452 )
+position = Vector2( 395.526, 363.399 )
 physics_material_override = SubResource( 1 )
 skin = 2
 color = Color( 0.843137, 0.988235, 0.552941, 1 )
@@ -62,21 +62,21 @@ player_number = 0
 position = Vector2( 514.415, 300.632 )
 
 [node name="Tower" parent="." instance=ExtResource( 2 )]
-position = Vector2( 587.681, 322.408 )
+position = Vector2( 590.854, 312.888 )
 
 [node name="trigger" parent="." instance=ExtResource( 8 )]
-position = Vector2( 543.302, -380.683 )
+position = Vector2( 1039.35, 352.526 )
 type = 1
 
 [node name="door" parent="." groups=[
 "triggered",
 ] instance=ExtResource( 7 )]
-position = Vector2( 264.353, 553.794 )
-
-[editable path="Walls/Wall"]
+position = Vector2( 482.46, 647.102 )
 
 [editable path="Walls/Wall2"]
 
 [editable path="Walls/Wall3"]
+
+[editable path="Walls/Wall4"]
 
 [editable path="Fencing/Fence"]
