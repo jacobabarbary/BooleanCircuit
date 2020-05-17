@@ -12,9 +12,8 @@ func _ready():
 func get_players()->Node2D:
 	return players.get_children()
 
-func on_connection(type,triggered):
+func on_triggered(type,triggered):
 	
 	
-	
+	get_tree().call_group("door","_on_door_open",type,triggered)
 	types[type] = triggered
-	print(type,triggered)
