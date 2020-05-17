@@ -3,7 +3,7 @@ extends Node2D
 enum {X_O,PLUS_MINUS,KEY_LOCK}
 
 var types = [X_O,PLUS_MINUS,KEY_LOCK]
-var players_connected = 0
+var players_connected = {}
 
 onready var players = $Players
 onready var camera = $Camera
@@ -15,17 +15,17 @@ func _ready():
 	world._on_some_players_connected()
 
 func _on_player_disconnected(player):
-	players_connected += -1
+	players_connected.erase(player.name)
 	_player_connections()
 
 func _on_player_connected(player):
-	players_connected += 1
+	players_connected[player.name] = player
 	_player_connections()
 	
 func _player_connections():
 	print('players:  ', players_connected)
 	if world:
-		if players_connected < 1:
+		if players_connected.size() < 1:
 			world._on_zero_players_connected()
 		else:
 			world._on_some_players_connected()

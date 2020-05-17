@@ -42,8 +42,10 @@ func _ray_connection_signals()->void:
 			emit_signal("disconnected")
 
 func test_connection():
-#	TODO: break the connection if a wall is between the two connectors
-	pass 
+	if connection:
+		var space_state = get_world_2d().direct_space_state
+		if not can_connect(space_state, connection):
+			reset_connection()
 
 func try_new_connection(area = null):
 	reset_connection()
