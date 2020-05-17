@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://gui/game.gd" type="Script" id=1]
+[ext_resource path="res://gui/popups/Popup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/buttons/reset_level.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/buttons/end_game.tscn" type="PackedScene" id=4]
 
 [node name="Gui" type="Control"]
 anchor_right = 1.0
@@ -11,9 +14,15 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_right = 40.0
+margin_right = 64.0
 margin_bottom = 14.0
 text = "Game Gui"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Pause" parent="." instance=ExtResource( 2 )]
+title = "Pause"
+buttons = [ ExtResource( 3 ), ExtResource( 4 ) ]
+
+[node name="Death" parent="." instance=ExtResource( 2 )]
