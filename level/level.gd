@@ -12,7 +12,9 @@ func _ready():
 func get_players()->Node2D:
 	return players.get_children()
 
-func on_whats_connected(type,triggered):
+func on_connection(type,triggered):
+	
+	
 	
 	types[type] = triggered
-	print(types,type,triggered)
+	print(type,triggered)

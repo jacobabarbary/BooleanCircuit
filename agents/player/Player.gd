@@ -26,7 +26,6 @@ onready var connector = $Connector
 func _ready():
 	set_skin(skin)
 	set_color(color)
-	connector.connect("is_connected",self,"_on_connected", ["is_ray_connected"])
 
 func _process(delta):
 	inputs_pressed = [
