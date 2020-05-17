@@ -11,4 +11,9 @@ func init():
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_pause"):
-		get_tree().paused = !get_tree().paused
+		var tree = get_tree()
+		get_tree().call_group("Pause","_on_pause", !tree.paused)
+		tree.paused = !tree.paused
+
+func _on_level_win():
+	get_tree().paused = true

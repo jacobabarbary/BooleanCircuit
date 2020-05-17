@@ -9,7 +9,7 @@ var lvl_num: int = 1
 onready var reset = $Reset
 
 func _ready():
-	stop_reset_timer()
+	call_deferred('stop_reset_timer')
 
 
 func _on_zero_players_connected():
