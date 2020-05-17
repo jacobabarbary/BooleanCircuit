@@ -15,6 +15,7 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 2.89, 0.45, 0.45, 1 )
 position = Vector2( -0.794403, -1.19164 )
 texture = ExtResource( 2 )
 vframes = 2
