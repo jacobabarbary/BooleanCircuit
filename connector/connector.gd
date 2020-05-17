@@ -18,7 +18,6 @@ signal disconnected()
 func _physics_process(delta): 
 	test_connection()
 	update_line()
-	print(ray_connected)
 
 func _on_DetectBox_area_entered(area):
 	update_nearby()

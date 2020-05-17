@@ -68,7 +68,9 @@ position = Vector2( 587.681, 322.408 )
 position = Vector2( 543.302, -380.683 )
 type = 1
 
-[node name="door" parent="." instance=ExtResource( 7 )]
+[node name="door" parent="." groups=[
+"triggered",
+] instance=ExtResource( 7 )]
 position = Vector2( 264.353, 553.794 )
 
 [editable path="Walls/Wall"]
