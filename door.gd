@@ -1,9 +1,12 @@
 extends StaticBody2D
 
+export var door_type = 1
+
+
 onready var collider = $CollisionShape2D
 onready var sprite = $Sprite
 onready var scene_root = get_tree().current_scene
-export var door_type = 1
+
 
 func on_triggered(type,triggered):
 	
@@ -13,5 +16,4 @@ func on_triggered(type,triggered):
 	else:
 		collider.disabled = false
 		sprite.visible = true
-	
-	print(type,triggered)
+
