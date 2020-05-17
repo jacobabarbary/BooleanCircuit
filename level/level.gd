@@ -12,6 +12,7 @@ onready var world = get_parent()
 func _ready():
 	camera.targets = get_players()
 	camera.set_current(true)
+	world._on_some_players_connected()
 
 func _on_player_disconnected(player):
 	players_connected += -1
@@ -22,6 +23,7 @@ func _on_player_connected(player):
 	_player_connections()
 	
 func _player_connections():
+	print('players:  ', players_connected)
 	if world:
 		if players_connected < 1:
 			world._on_zero_players_connected()

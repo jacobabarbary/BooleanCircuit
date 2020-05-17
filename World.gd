@@ -6,16 +6,23 @@ const RESET_TIME_LIMIT = 6
 
 var lvl_num: int = 1
 
-func _on_zero_players_connected():
-	print('bob')
-	$Reset.set_paused(false)
-	$Reset.start(RESET_TIME_LIMIT)
+onready var reset = $Reset
 
+func _ready():
+	stop_reset_timer()
+
+
+func _on_zero_players_connected():
+	start_reset_timer()
+	
 func _on_some_players_connected():
-	$Reset.set_paused(true)
+	stop_reset_timer()
 
 func _on_Reset_timeout():
+	stop_reset_timer()
 	_on_reset_level()
+
+
 	
 func _on_reset_level():
 	load_level(lvl_num)
@@ -37,6 +44,18 @@ func _on_next_level():
 
 
 
+func stop_reset_timer():
+	reset.start(RESET_TIME_LIMIT)
+	reset.set_paused(true)
+	get_tree().call_group("ResetTimer","_on_reset_timer_stop", reset)
+	
+func start_reset_timer():
+	reset.start(RESET_TIME_LIMIT)
+	reset.set_paused(false)
+	get_tree().call_group("ResetTimer","_on_reset_timer_start", reset)	
+
+
+
 func load_level(num: int):
 	remove_current_level()
 	add_new_level(num)
@@ -47,6 +66,7 @@ func add_new_level(num: int):
 	add_child(lvl)
 
 func remove_current_level():
+	stop_reset_timer()
 	if has_node('Level'):
 		var lvl = get_node('Level')
 		remove_child(lvl)
