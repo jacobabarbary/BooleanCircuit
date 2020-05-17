@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/AtariSmall.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://gui/buttons/quit_game.tscn" type="PackedScene" id=2]
@@ -7,6 +7,13 @@
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
+
+[sub_resource type="InputEventAction" id=2]
+action = "ui_select"
+
+[sub_resource type="ShortCut" id=3]
+resource_local_to_scene = true
+shortcut = SubResource( 2 )
 
 [node name="Gui" type="Control"]
 anchor_right = 1.0
@@ -26,6 +33,7 @@ margin_left = -513.0
 margin_top = 217.0
 margin_right = 513.9
 margin_bottom = 300.0
+focus_mode = 2
 custom_constants/separation = 50
 __meta__ = {
 "_edit_use_anchors_": false
@@ -49,6 +57,9 @@ margin_left = 0.0
 margin_top = 87.0
 margin_right = 1026.0
 margin_bottom = 110.0
+focus_neighbour_bottom = NodePath("../LoadGui")
+focus_next = NodePath("../LoadGui")
+shortcut = SubResource( 3 )
 text = "Play"
 
 [node name="LoadGui" parent="VBoxContainer" instance=ExtResource( 4 )]
@@ -58,6 +69,10 @@ margin_left = 0.0
 margin_top = 160.0
 margin_right = 1026.0
 margin_bottom = 183.0
+focus_neighbour_top = NodePath("../LoadLevel")
+focus_neighbour_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../LoadLevel")
 text = "Levels"
 gui_name = "levels"
 
@@ -68,3 +83,5 @@ margin_left = 0.0
 margin_top = 233.0
 margin_right = 1026.0
 margin_bottom = 256.0
+focus_neighbour_top = NodePath("../LoadGui")
+focus_previous = NodePath("../LoadGui")
