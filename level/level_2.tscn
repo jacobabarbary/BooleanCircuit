@@ -88,7 +88,7 @@ position = Vector2( 372.432, 233.794 )
 position = Vector2( 1037.58, 503.313 )
 
 [node name="Finish" parent="." instance=ExtResource( 7 )]
-position = Vector2( 1517.4, -315.136 )
+position = Vector2( 1426.75, -362.622 )
 
 [editable path="Walls/Wall"]
 
