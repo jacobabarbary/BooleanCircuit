@@ -1,7 +1,7 @@
 extends Node
 
 const LEVEL_PATH = 'res://level/level_%d.tscn'
-const MAX_LEVELS = 2
+const MAX_LEVELS = 4
 const RESET_TIME_LIMIT = 6
 
 var lvl_num: int = 1
