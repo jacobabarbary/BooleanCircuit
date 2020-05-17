@@ -1,7 +1,10 @@
 extends Node2D
 
 enum {X_O,PLUS_MINUS,KEY_LOCK}
+
 var types = [X_O,PLUS_MINUS,KEY_LOCK]
+
+
 onready var players = $Players
 onready var camera = $Camera
 

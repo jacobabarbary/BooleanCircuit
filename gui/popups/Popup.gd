@@ -9,6 +9,9 @@ onready var vbox = $CenterContainer/VBoxContainer
 func _on_reset_level():
 	visible = false
 
+func _on_next_level():
+	visible = false
+	
 func _ready():
 	label.text = title
 	for button in buttons:

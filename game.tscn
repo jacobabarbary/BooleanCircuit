@@ -9,6 +9,7 @@ script = ExtResource( 1 )
 
 [node name="World" type="Node" parent="." groups=[
 "GameEnder",
+"LevelNext",
 "LevelReseter",
 "LevelStarter",
 ]]

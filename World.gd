@@ -1,6 +1,8 @@
 extends Node
 
 const LEVEL_PATH = 'res://level/level_%d.tscn'
+const MAX_LEVELS = 1
+
 
 var lvl_num: int = 1
 
@@ -12,7 +14,13 @@ func _on_start_level(num):
 
 func _on_end_game():
 	remove_current_level()
-	
+
+func _on_next_level():
+	if lvl_num < MAX_LEVELS:
+		lvl_num += 1
+	else:
+		lvl_num = 1
+	load_level(lvl_num)
 
 
 func load_level(num: int):
