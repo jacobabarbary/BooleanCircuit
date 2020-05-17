@@ -1,10 +1,10 @@
 extends Node2D
 
-onready var connector = $Connector
 export var type = 0
-var triggered
+
+func _on_Connector_connected():
+	get_tree().call_group("Door","_on_door_open",type)
 
 
-func _physics_process(delta):
-	triggered = connector.ray_connected
-	get_tree().call_group("triggered","on_triggered",type,triggered)
+func _on_Connector_disconnected():
+	get_tree().call_group("Door","_on_door_close",type)

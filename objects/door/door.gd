@@ -6,19 +6,15 @@ const ENABLED_COLOR = Color(1,0.5,0.5,1)
 
 export var door_type = 1
 
-
 onready var collider = $CollisionShape2D
 onready var sprite = $Sprite
-onready var scene_root = get_tree().current_scene
 
-
-func on_triggered(type,triggered):
-	
-	if type == door_type and triggered == true:
+func _on_door_open(key_type):
+	if door_type == key_type:
 		collider.disabled = true
 		sprite.modulate = DISABLED_COLOR
-	else:
+
+func _on_door_close(key_type):
+	if door_type == key_type:
 		collider.disabled = false
 		sprite.modulate = ENABLED_COLOR
-		sprite.visible = true
-

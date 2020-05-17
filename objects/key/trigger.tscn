@@ -23,3 +23,5 @@ frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+[connection signal="connected" from="Connector" to="." method="_on_Connector_connected"]
+[connection signal="disconnected" from="Connector" to="." method="_on_Connector_disconnected"]
