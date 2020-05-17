@@ -15,9 +15,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 30.0
 margin_right = 64.0
 margin_bottom = 14.0
-text = "Game Gui"
+text = "Press P to pause"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -27,4 +29,3 @@ title = "Pause"
 buttons = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
 
 [node name="Death" parent="." instance=ExtResource( 2 )]
-visible = false

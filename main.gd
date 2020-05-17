@@ -9,3 +9,6 @@ func _ready():
 func init():
 	gui.load_gui('menu')
 
+func _process(delta):
+	if Input.is_action_just_pressed("ui_pause"):
+		get_tree().paused = !get_tree().paused

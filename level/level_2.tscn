@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://objects/fence/Fence.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://agents/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/level.gd" type="Script" id=4]
+[ext_resource path="res://shared/Camera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=6]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 10.0
+bounce = 5.0
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource( 6 )]
+
+[node name="CollisionPolygon2D" parent="Walls/Wall" index="0"]
+position = Vector2( 1112.42, 494.407 )
+polygon = PoolVector2Array( -444.533, -290.763, -128.927, -298.926, -131.647, -245.871, -449.974, -247.231 )
+
+[node name="Wall4" parent="Walls" instance=ExtResource( 6 )]
+
+[node name="CollisionPolygon2D" parent="Walls/Wall4" index="0"]
+position = Vector2( 1112.42, 494.407 )
+polygon = PoolVector2Array( -808.06, -257.371, -821.292, -325.734, -813.206, -410.27, -689.711, -464.666, -536.077, -433.792, -391.48, -460.955, -162.937, -494.964, 133.624, -460.955, 300.95, -486.802, 456.032, -463.676, 470.996, -569.785, 430.185, -735.75, 405.698, -882.67, 476.438, -1041.83, 672.331, -1132.98, 786.603, -992.86, 843.738, -765.678, 770.953, -508.509, 741.343, -249.423, 1803.6, -256.826, 1848.09, -1546.8, 1847.93, -2138.82, -2898.7, -2146.6, -2704.17, -170.136 )
+
+[node name="Wall2" parent="Walls" instance=ExtResource( 6 )]
+
+[node name="CollisionPolygon2D" parent="Walls/Wall2" index="0"]
+position = Vector2( 1112.42, 494.407 )
+polygon = PoolVector2Array( 743.81, -275.433, 1798.24, -281.442, 1940.18, 1633.04, -2778.67, 1883.54, -2719.65, -239.833, -815.552, -270.007, -802.628, -235.113, -833.645, -169.203, -849.153, -47.7218, -712.164, 29.8194, -483.417, 73.7594, -323.165, 27.2346, -197.807, 59.5435, -49.1862, 63.4206, 90.3883, 68.59, 246.763, 100.899, 481.972, 131.915, 656.439, 45.3276, 764.997, -69.6919, 764.997, -145.941 )
+
+[node name="Wall3" parent="Walls" instance=ExtResource( 6 )]
+
+[node name="CollisionPolygon2D" parent="Walls/Wall3" index="0"]
+position = Vector2( 1112.42, 494.407 )
+polygon = PoolVector2Array( 189.929, -309.085, 197.863, -248.792, 398.829, -239.407, 395.979, -297.357 )
+
+[node name="Fencing" type="Node2D" parent="."]
+
+[node name="Fence" parent="Fencing" instance=ExtResource( 1 )]
+
+[node name="CollisionPolygon2D" parent="Fencing/Fence" index="0"]
+polygon = PoolVector2Array( 671.166, 303.287, 671.166, 341.368, 290.365, 350.888, 295.125, 308.047 )
+
+[node name="Fence2" parent="Fencing" instance=ExtResource( 1 )]
+position = Vector2( -1.67017, 0 )
+
+[node name="CollisionPolygon2D" parent="Fencing/Fence2" index="0"]
+polygon = PoolVector2Array( 978.928, 295.262, 1305.76, 284.881, 1322.47, 339.997, 970.059, 339.997 )
+
+[node name="Fence3" parent="Fencing" instance=ExtResource( 1 )]
+position = Vector2( -1.67017, 0 )
+
+[node name="CollisionPolygon2D" parent="Fencing/Fence3" index="0"]
+polygon = PoolVector2Array( 1510.79, 297.489, 1855.25, 309.934, 1860.35, 359.869, 1507.94, 350.689 )
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="player" parent="Players" instance=ExtResource( 3 )]
+position = Vector2( 372.818, 138.729 )
+rotation = -0.0222921
+physics_material_override = SubResource( 1 )
+skin = 6
+color = Color( 1, 0.341176, 0.819608, 1 )
+
+[node name="player2" parent="Players" instance=ExtResource( 3 )]
+position = Vector2( 381.804, 337.113 )
+physics_material_override = SubResource( 1 )
+skin = 2
+color = Color( 0.843137, 0.988235, 0.552941, 1 )
+player_number = 0
+
+[node name="Camera" parent="." instance=ExtResource( 5 )]
+position = Vector2( 514.415, 300.632 )
+
+[node name="Tower" parent="." instance=ExtResource( 2 )]
+position = Vector2( 372.432, 233.794 )
+
+[node name="Tower2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1137.21, 492.647 )
+
+[node name="Tower3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1696.14, -420.725 )
+
+[editable path="Walls/Wall"]
+
+[editable path="Walls/Wall4"]
+
+[editable path="Walls/Wall2"]
+
+[editable path="Walls/Wall3"]
+
+[editable path="Fencing/Fence"]
+
+[editable path="Fencing/Fence2"]
+
+[editable path="Fencing/Fence3"]

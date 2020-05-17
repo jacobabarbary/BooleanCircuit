@@ -1,7 +1,7 @@
 extends Node
 
 const LEVEL_PATH = 'res://level/level_%d.tscn'
-const MAX_LEVELS = 1
+const MAX_LEVELS = 2
 
 
 var lvl_num: int = 1
@@ -23,9 +23,11 @@ func _on_next_level():
 	load_level(lvl_num)
 
 
+
 func load_level(num: int):
 	remove_current_level()
 	add_new_level(num)
+	get_tree().paused = false
 
 func add_new_level(num: int):
 	var lvl = load(LEVEL_PATH % num).instance()

@@ -5,6 +5,7 @@
 [ext_resource path="res://Gui.gd" type="Script" id=3]
 
 [node name="Game" type="Node"]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="World" type="Node" parent="." groups=[
@@ -12,6 +13,7 @@ script = ExtResource( 1 )
 "LevelNext",
 "LevelReseter",
 "LevelStarter",
+"Pause",
 ]]
 script = ExtResource( 2 )
 

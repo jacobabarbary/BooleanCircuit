@@ -38,6 +38,10 @@ func _physics_process(delta):
 	if connector.ray_connected:
 		aim(delta)
 		launch()
+	elif inputs_pressed[2]:
+		connector.update_nearby()
+		connector._connection()
+		
 	_friction(delta)
 
 func _friction(delta):
