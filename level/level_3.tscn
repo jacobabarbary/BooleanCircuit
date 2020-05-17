@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://objects/fence/Fence.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://agents/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/level.gd" type="Script" id=4]
+[ext_resource path="res://shared/Camera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/key/trigger.tscn" type="PackedScene" id=7]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 10.0
+bounce = 5.0
+
+[node name="Level" type="Node2D" groups=[
+"Level",
+]]
+script = ExtResource( 4 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource( 6 )]
+
+[node name="CollisionPolygon2D" parent="Walls/Wall" index="0"]
+position = Vector2( 991.661, 19.7278 )
+scale = Vector2( 1.42866, 1.39552 )
+polygon = PoolVector2Array( 411.53, -424.573, 435.867, 131.354, -326.438, 110.488, -326.337, 30.8217, 30.6452, 53.2949, 39.0331, -250.112, -452.278, -242.976, -670.761, -498.236, -76.9176, -586.631 )
+
+[node name="Fencing" type="Node2D" parent="."]
+
+[node name="Fence" parent="Fencing" instance=ExtResource( 1 )]
+
+[node name="CollisionPolygon2D" parent="Fencing/Fence" index="0"]
+position = Vector2( -783.987, -910.481 )
+scale = Vector2( 1.56332, 1.42617 )
+polygon = PoolVector2Array( 647.694, 330.809, 704.02, 411.17, 716.971, 693.926, 834.247, 687.424, 831.368, 760.837, 669.485, 752.204 )
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="player" parent="Players" instance=ExtResource( 3 )]
+position = Vector2( 713.559, 27.9943 )
+rotation = -0.0222921
+physics_material_override = SubResource( 1 )
+skin = 6
+color = Color( 1, 0.341176, 0.819608, 1 )
+
+[node name="player2" parent="Players" instance=ExtResource( 3 )]
+position = Vector2( 965.447, 606.944 )
+physics_material_override = SubResource( 1 )
+skin = 2
+color = Color( 0.843137, 0.988235, 0.552941, 1 )
+player_number = 0
+
+[node name="Camera" parent="." instance=ExtResource( 5 )]
+position = Vector2( 514.415, 300.632 )
+
+[node name="Tower" parent="." instance=ExtResource( 2 )]
+pause_mode = 1
+position = Vector2( -87.1252, 333.852 )
+
+[node name="trigger" parent="." instance=ExtResource( 7 )]
+position = Vector2( 354.322, -281.111 )
+rotation = -0.0222921
+type = 1
+
+[node name="trigger2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1024.94, -294.486 )
+rotation = -0.0222921
+
+[editable path="Walls/Wall"]
+
+[editable path="Fencing/Fence"]
