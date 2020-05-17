@@ -14,8 +14,11 @@ script = ExtResource( 1 )
 "LevelReseter",
 "LevelStarter",
 "Pause",
+"World",
 ]]
 script = ExtResource( 2 )
+
+[node name="Reset" type="Timer" parent="World"]
 
 [node name="Gui" type="CanvasLayer" parent="." groups=[
 "GameEnder",
@@ -23,3 +26,4 @@ script = ExtResource( 2 )
 "LevelStarter",
 ]]
 script = ExtResource( 3 )
+[connection signal="timeout" from="World/Reset" to="World" method="_on_Reset_timeout"]

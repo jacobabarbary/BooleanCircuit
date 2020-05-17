@@ -2,14 +2,26 @@ extends Node
 
 const LEVEL_PATH = 'res://level/level_%d.tscn'
 const MAX_LEVELS = 2
-
+const RESET_TIME_LIMIT = 6
 
 var lvl_num: int = 1
 
+func _on_zero_players_connected():
+	print('bob')
+	$Reset.set_paused(false)
+	$Reset.start(RESET_TIME_LIMIT)
+
+func _on_some_players_connected():
+	$Reset.set_paused(true)
+
+func _on_Reset_timeout():
+	_on_reset_level()
+	
 func _on_reset_level():
 	load_level(lvl_num)
 
 func _on_start_level(num):
+	lvl_num = num
 	load_level(num)
 
 func _on_end_game():
@@ -21,6 +33,7 @@ func _on_next_level():
 	else:
 		lvl_num = 1
 	load_level(lvl_num)
+
 
 
 
@@ -38,5 +51,7 @@ func remove_current_level():
 		var lvl = get_node('Level')
 		remove_child(lvl)
 		lvl.queue_free()
+
+
 
 

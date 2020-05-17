@@ -74,7 +74,8 @@ margin_left = 70.0
 margin_top = 0.0
 margin_right = 90.0
 margin_bottom = 23.0
-text = "1"
+text = "2"
+lvl_num = 2
 
 [node name="LoadLevel4" parent="CenterContainer/VBoxContainer/CenterContainer/Levels" instance=ExtResource( 3 )]
 anchor_right = 0.0

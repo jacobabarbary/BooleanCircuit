@@ -13,7 +13,9 @@
 friction = 10.0
 bounce = 5.0
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=[
+"Level",
+]]
 pause_mode = 1
 script = ExtResource( 4 )
 

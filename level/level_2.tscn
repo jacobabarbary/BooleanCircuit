@@ -11,7 +11,9 @@
 friction = 10.0
 bounce = 5.0
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=[
+"Level",
+]]
 script = ExtResource( 4 )
 
 [node name="Walls" type="Node2D" parent="."]
@@ -20,25 +22,25 @@ script = ExtResource( 4 )
 
 [node name="CollisionPolygon2D" parent="Walls/Wall" index="0"]
 position = Vector2( 1112.42, 494.407 )
-polygon = PoolVector2Array( -444.533, -290.763, -128.927, -298.926, -131.647, -245.871, -449.974, -247.231 )
+polygon = PoolVector2Array( -444.533, -290.763, -230.606, -296.007, -235.118, -248.175, -449.974, -247.231 )
 
 [node name="Wall4" parent="Walls" instance=ExtResource( 6 )]
 
 [node name="CollisionPolygon2D" parent="Walls/Wall4" index="0"]
 position = Vector2( 1112.42, 494.407 )
-polygon = PoolVector2Array( -808.06, -257.371, -821.292, -325.734, -813.206, -410.27, -689.711, -464.666, -536.077, -433.792, -391.48, -460.955, -162.937, -494.964, 133.624, -460.955, 300.95, -486.802, 456.032, -463.676, 470.996, -569.785, 430.185, -735.75, 405.698, -882.67, 476.438, -1041.83, 672.331, -1132.98, 786.603, -992.86, 843.738, -765.678, 770.953, -508.509, 741.343, -249.423, 1803.6, -256.826, 1848.09, -1546.8, 1847.93, -2138.82, -2898.7, -2146.6, -2704.17, -170.136 )
+polygon = PoolVector2Array( -808.06, -257.371, -821.292, -325.734, -813.206, -410.27, -689.711, -464.666, -536.077, -433.792, -391.48, -460.955, -162.937, -494.964, -27.4885, -472.866, 219.229, -457.761, 289.72, -573.567, 236.852, -739.724, 199.089, -968.819, 287.203, -1089.66, 440.772, -1117.35, 554.061, -991.477, 581.754, -790.075, 564.131, -540.839, 508.745, -263.911, 1803.6, -256.826, 1848.09, -1546.8, 1847.93, -2138.82, -2898.7, -2146.6, -2704.17, -170.136 )
 
 [node name="Wall2" parent="Walls" instance=ExtResource( 6 )]
 
 [node name="CollisionPolygon2D" parent="Walls/Wall2" index="0"]
 position = Vector2( 1112.42, 494.407 )
-polygon = PoolVector2Array( 743.81, -275.433, 1798.24, -281.442, 1940.18, 1633.04, -2778.67, 1883.54, -2719.65, -239.833, -815.552, -270.007, -802.628, -235.113, -833.645, -169.203, -849.153, -47.7218, -712.164, 29.8194, -483.417, 73.7594, -323.165, 27.2346, -197.807, 59.5435, -49.1862, 63.4206, 90.3883, 68.59, 246.763, 100.899, 481.972, 131.915, 656.439, 45.3276, 764.997, -69.6919, 764.997, -145.941 )
+polygon = PoolVector2Array( 520.925, -274.246, 1798.24, -281.442, 1940.18, 1633.04, -2778.67, 1883.54, -2719.65, -239.833, -815.552, -270.007, -802.628, -235.113, -833.645, -169.203, -849.153, -47.7218, -712.164, 29.8194, -483.417, 73.7594, -323.165, 27.2346, -197.807, 59.5435, -49.1862, 63.4206, 90.3883, 68.59, 246.763, 100.899, 502.289, 5.293, 562.855, -111.182 )
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 6 )]
 
 [node name="CollisionPolygon2D" parent="Walls/Wall3" index="0"]
 position = Vector2( 1112.42, 494.407 )
-polygon = PoolVector2Array( 189.929, -309.085, 197.863, -248.792, 398.829, -239.407, 395.979, -297.357 )
+polygon = PoolVector2Array( 115.954, -309.545, 116.856, -253.59, 293.746, -247.272, 288.331, -305.935 )
 
 [node name="Fencing" type="Node2D" parent="."]
 
@@ -51,13 +53,13 @@ polygon = PoolVector2Array( 671.166, 303.287, 671.166, 341.368, 290.365, 350.888
 position = Vector2( -1.67017, 0 )
 
 [node name="CollisionPolygon2D" parent="Fencing/Fence2" index="0"]
-polygon = PoolVector2Array( 978.928, 295.262, 1305.76, 284.881, 1322.47, 339.997, 970.059, 339.997 )
+polygon = PoolVector2Array( 879.74, 297.842, 1229.91, 282.499, 1240.74, 339.357, 882.447, 344.772 )
 
 [node name="Fence3" parent="Fencing" instance=ExtResource( 1 )]
 position = Vector2( -1.67017, 0 )
 
 [node name="CollisionPolygon2D" parent="Fencing/Fence3" index="0"]
-polygon = PoolVector2Array( 1510.79, 297.489, 1855.25, 309.934, 1860.35, 359.869, 1507.94, 350.689 )
+polygon = PoolVector2Array( 1402.29, 287.914, 1640.08, 302.75, 1640.08, 348.013, 1404.09, 346.577 )
 
 [node name="Players" type="Node2D" parent="."]
 
@@ -82,10 +84,10 @@ position = Vector2( 514.415, 300.632 )
 position = Vector2( 372.432, 233.794 )
 
 [node name="Tower2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1137.21, 492.647 )
+position = Vector2( 1037.58, 503.313 )
 
 [node name="Tower3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1696.14, -420.725 )
+position = Vector2( 1492.22, -420.725 )
 
 [editable path="Walls/Wall"]
 
