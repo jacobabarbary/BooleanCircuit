@@ -23,7 +23,6 @@ func _on_player_connected(player):
 	_player_connections()
 	
 func _player_connections():
-	print('players:  ', players_connected)
 	if world:
 		if players_connected.size() < 1:
 			world._on_zero_players_connected()
