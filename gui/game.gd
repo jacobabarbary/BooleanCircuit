@@ -11,7 +11,6 @@ func _on_pause(val):
 	
 func _process(delta):
 	if reset_timer:
-		print( stepify(reset_timer.time_left,0.1) )
 		timer.text = String( stepify(reset_timer.time_left,1.0) )
 
 func _on_level_win():
