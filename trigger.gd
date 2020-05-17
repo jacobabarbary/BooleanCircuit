@@ -1,17 +1,17 @@
 extends Node2D
 
-export var type = 0
-var triggered = false
 onready var connector = $Connector
+export var type = 0
+var triggered
 
-signal whats_connected
+signal is_connection
 
 func _ready():
-	connect("whats_connected",get_parent(),"on_whats_connected")
+	
+	
+	
+	connect("is_connection",get_tree().current_scene,"on_connection")
 
-func _process(delta):
-	if connector.has_connection():
-		triggered = true
-	else:
-		triggered = false
-	emit_signal("whats_connected",type,triggered)
+func _physics_process(delta):
+	triggered = connector.ray_connected
+	emit_signal("is_connection",type,triggered)
