@@ -4,7 +4,10 @@
 [ext_resource path="res://World.gd" type="Script" id=2]
 [ext_resource path="res://Gui.gd" type="Script" id=3]
 
-[node name="Game" type="Node"]
+[node name="Game" type="Node" groups=[
+"Win",
+]]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="World" type="Node" parent="." groups=[
@@ -12,8 +15,15 @@ script = ExtResource( 1 )
 "LevelNext",
 "LevelReseter",
 "LevelStarter",
+"Pause",
+"World",
 ]]
 script = ExtResource( 2 )
+
+[node name="Reset" type="Timer" parent="World"]
+pause_mode = 1
+wait_time = 5.0
+one_shot = true
 
 [node name="Gui" type="CanvasLayer" parent="." groups=[
 "GameEnder",
@@ -21,3 +31,4 @@ script = ExtResource( 2 )
 "LevelStarter",
 ]]
 script = ExtResource( 3 )
+[connection signal="timeout" from="World/Reset" to="World" method="_on_Reset_timeout"]

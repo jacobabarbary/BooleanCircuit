@@ -6,7 +6,11 @@
 [ext_resource path="res://gui/buttons/end_game.tscn" type="PackedScene" id=4]
 [ext_resource path="res://gui/buttons/next_level.tscn" type="PackedScene" id=5]
 
-[node name="Gui" type="Control"]
+[node name="Gui" type="Control" groups=[
+"Pause",
+"ResetTimer",
+"Win",
+]]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -15,16 +19,33 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 30.0
 margin_right = 64.0
 margin_bottom = 14.0
-text = "Game Gui"
+text = "Press P to pause"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Pause" parent="." instance=ExtResource( 2 )]
 title = "Pause"
-buttons = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ]
+buttons = [ ExtResource( 3 ), ExtResource( 4 ) ]
 
-[node name="Death" parent="." instance=ExtResource( 2 )]
-visible = false
+[node name="Win" parent="." instance=ExtResource( 2 )]
+visible = true
+title = "Finished"
+buttons = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ]
+
+[node name="timer" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -149.339
+margin_top = 30.0
+margin_right = -43.3394
+margin_bottom = 44.0
+text = "5"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
