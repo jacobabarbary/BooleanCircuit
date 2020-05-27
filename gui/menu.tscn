@@ -61,6 +61,7 @@ focus_neighbour_bottom = NodePath("../LoadGui")
 focus_next = NodePath("../LoadGui")
 shortcut = SubResource( 3 )
 text = "Play"
+lvl_num = 0
 
 [node name="LoadGui" parent="VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0

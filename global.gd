@@ -2,9 +2,9 @@ extends Node
 
 const GUI_PATH = 'res://gui/%s.tscn'
 const LEVEL_PATH = 'res://level/level_%d.tscn'
-const MAX_LEVELS = 4
+const MAX_LEVELS = 5
 
-var lvl_num = 1
+var lvl_num = 5
 var current_scene = null
 
 func _ready():
@@ -15,7 +15,8 @@ func load_gui(gui_name: String):
 	call_deferred("_deferred_goto_scene", GUI_PATH % gui_name)
 
 func load_level(new_lvl_number: int):
-	lvl_num = new_lvl_number
+	if new_lvl_number > 0 && new_lvl_number <= MAX_LEVELS:
+		lvl_num = new_lvl_number
 	call_deferred("_deferred_goto_scene", "res://game.tscn")
 
 func reset_level():

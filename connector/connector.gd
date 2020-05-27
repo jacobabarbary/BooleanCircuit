@@ -15,8 +15,10 @@ signal connection_changed(val)
 signal connected()
 signal disconnected()
 
+var test_count = 0
+
 func _physics_process(delta): 
-	test_connection()
+	_test_connection()
 	update_line()
 
 func _on_DetectBox_area_entered(area):
@@ -28,10 +30,14 @@ func _on_DetectBox_area_exited(area):
 	_connection()
 
 func _connection():
+	test_count += 1
+	reset_connection()
 	try_new_connection()
 	ray_connected = has_connection()
 	_ray_connection_signals()
+	print('ray_connected: ',ray_connected, ' - test_count: ', test_count)
 	ray_was_connected = has_connection()
+
 
 func _ray_connection_signals()->void:
 	if ray_connected != ray_was_connected || ray_was_connected == null:
@@ -41,17 +47,19 @@ func _ray_connection_signals()->void:
 		else:
 			emit_signal("disconnected")
 
-func test_connection():
+func _test_connection():
 	if connection:
 		var space_state = get_world_2d().direct_space_state
 		if not can_connect(space_state, connection):
-			reset_connection()
+			_connection()
+	elif not nearby.empty():
+		_connection()
 
-func try_new_connection(area = null):
-	reset_connection()
+func try_new_connection():
 	var space_state = get_world_2d().direct_space_state
+	print( nearby.size() )
 	for targ in nearby:
-		if can_connect(space_state, targ):	
+		if can_connect(space_state, targ):
 			set_connection( targ.get_parent() )
 			return
 
