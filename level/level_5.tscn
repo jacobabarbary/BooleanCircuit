@@ -30,5 +30,7 @@ color = Color( 1, 0.341176, 0.819608, 1 )
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 position = Vector2( 514.415, 300.632 )
 
-[node name="Tower" parent="." instance=ExtResource( 2 )]
+[node name="Tower" parent="." groups=[
+"PlayerConnections",
+] instance=ExtResource( 2 )]
 position = Vector2( 776.029, 297.771 )

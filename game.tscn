@@ -9,6 +9,7 @@
 "LevelStarter",
 "NextLevel",
 "Pause",
+"PlayerConnections",
 "Win",
 ]]
 pause_mode = 2
