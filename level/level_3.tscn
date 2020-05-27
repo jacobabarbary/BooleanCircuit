@@ -16,6 +16,7 @@ bounce = 5.0
 
 [node name="Level" type="Node2D" groups=[
 "Level",
+"PlayerConnections",
 ]]
 script = ExtResource( 4 )
 

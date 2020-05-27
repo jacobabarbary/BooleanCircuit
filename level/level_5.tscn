@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://agents/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/level.gd" type="Script" id=4]
+[ext_resource path="res://shared/Camera.tscn" type="PackedScene" id=5]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 10.0
+bounce = 5.0
+
+[node name="Level" type="Node2D" groups=[
+"Level",
+]]
+script = ExtResource( 4 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Fencing" type="Node2D" parent="."]
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="player" parent="Players" instance=ExtResource( 3 )]
+position = Vector2( 777.419, 387.836 )
+rotation = -0.0222921
+physics_material_override = SubResource( 1 )
+skin = 6
+color = Color( 1, 0.341176, 0.819608, 1 )
+
+[node name="Camera" parent="." instance=ExtResource( 5 )]
+position = Vector2( 514.415, 300.632 )
+
+[node name="Tower" parent="." groups=[
+"PlayerConnections",
+] instance=ExtResource( 2 )]
+position = Vector2( 776.029, 297.771 )

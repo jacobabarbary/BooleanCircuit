@@ -38,9 +38,6 @@ func _physics_process(delta):
 	if connector.ray_connected:
 		aim(delta)
 		launch()
-	elif inputs_pressed[2]:
-		connector.update_nearby()
-		connector._connection()
 		
 	_friction(delta)
 
@@ -69,8 +66,8 @@ func set_skin(index)->void:
 
 func _on_Connector_connected():
 	$Sprite.modulate = color
-	get_tree().call_group("Level","_on_player_connected", self)
+	get_tree().call_group("PlayerConnections","_on_player_connected", self)
 
 func _on_Connector_disconnected():
 	$Sprite.modulate = DISCONNECTED_COLOR
-	get_tree().call_group("Level","_on_player_disconnected", self)
+	get_tree().call_group("PlayerConnections","_on_player_disconnected", self)
