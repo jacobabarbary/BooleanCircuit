@@ -1,55 +1,27 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://World.gd" type="Script" id=2]
-[ext_resource path="res://Gui.gd" type="Script" id=3]
-
-[sub_resource type="GDScript" id=1]
-script/source = "extends Node
-
-onready var world = $World
-onready var gui = $Gui
-
-func _ready():
-	call_deferred(\"init\")
-
-func init():
-	gui.load_gui('menu')
-
-func _process(delta):
-	if Input.is_action_just_pressed(\"ui_pause\"):
-		var tree = get_tree()
-		get_tree().call_group(\"Pause\",\"_on_pause\", !tree.paused)
-		tree.paused = !tree.paused
-
-func _on_level_win():
-	get_tree().paused = true
-"
+[ext_resource path="res://gui/game.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game.gd" type="Script" id=2]
 
 [node name="Game" type="Node" groups=[
+"GameEnder",
+"LevelReseter",
+"LevelStarter",
+"NextLevel",
+"Pause",
 "Win",
 ]]
 pause_mode = 2
-script = SubResource( 1 )
-
-[node name="World" type="Node" parent="." groups=[
-"GameEnder",
-"LevelNext",
-"LevelReseter",
-"LevelStarter",
-"Pause",
-"World",
-]]
 script = ExtResource( 2 )
 
-[node name="Reset" type="Timer" parent="World"]
+[node name="Reset" type="Timer" parent="."]
 pause_mode = 1
 wait_time = 5.0
 one_shot = true
 
-[node name="Gui" type="CanvasLayer" parent="." groups=[
-"GameEnder",
-"GuiChanger",
-"LevelStarter",
-]]
-script = ExtResource( 3 )
-[connection signal="timeout" from="World/Reset" to="World" method="_on_Reset_timeout"]
+[node name="World" type="Node" parent="."]
+
+[node name="Gui" type="CanvasLayer" parent="."]
+
+[node name="Gui" parent="Gui" instance=ExtResource( 1 )]
+[connection signal="timeout" from="Reset" to="." method="_on_Reset_timeout"]
