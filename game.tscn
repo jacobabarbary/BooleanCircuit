@@ -6,7 +6,7 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
-const RESET_TIME_LIMIT = 6
+const RESET_TIME_LIMIT = 1
 
 onready var world = $World
 onready var gui = $Gui
@@ -26,33 +26,24 @@ func _process(delta):
 		var tree = get_tree()
 		get_tree().call_group(\"Pause\",\"_on_pause\", !tree.paused)
 #		tree.paused = !tree.paused
-
-func _on_level_win():
-	get_tree().paused = true
-
-func _on_zero_players_connected():
-	start_reset_timer()
-	
-func _on_some_players_connected():
-	stop_reset_timer()
+	if Input.is_action_just_pressed('ui_reset'):
+		start_reset_timer()
+	elif Input.is_action_just_released('ui_reset'):
+		stop_reset_timer()
 
 func _on_Reset_timeout():
-	pass
-#	stop_reset_timer()
-#	Global.reset_level()
+	Global.reset_level()
 
 
 func stop_reset_timer():
-	pass
-#	reset.start(RESET_TIME_LIMIT)
-#	reset.set_paused(true)
-#	get_tree().call_group(\"ResetTimer\",\"_on_reset_timer_stop\", reset)
+	reset.start(RESET_TIME_LIMIT)
+	reset.set_paused(true)
+	get_tree().call_group(\"ResetTimer\",\"_on_reset_timer_stop\", reset)
 	
 func start_reset_timer():
-	pass
-#	reset.start(RESET_TIME_LIMIT)
-#	reset.set_paused(false)
-#	get_tree().call_group(\"ResetTimer\",\"_on_reset_timer_start\", reset)	
+	reset.start(RESET_TIME_LIMIT)
+	reset.set_paused(false)
+	get_tree().call_group(\"ResetTimer\",\"_on_reset_timer_start\", reset)	
 #
 "
 
@@ -72,14 +63,7 @@ pause_mode = 1
 wait_time = 5.0
 one_shot = true
 
-[node name="World" type="Node" parent="." groups=[
-"GameEnder",
-"LevelNext",
-"LevelReseter",
-"LevelStarter",
-"Pause",
-"World",
-]]
+[node name="World" type="Node" parent="."]
 
 [node name="Gui" type="CanvasLayer" parent="." groups=[
 "GameEnder",
@@ -89,4 +73,4 @@ one_shot = true
 script = ExtResource( 3 )
 
 [node name="Gui" parent="Gui" instance=ExtResource( 1 )]
-[connection signal="timeout" from="Reset" to="World" method="_on_Reset_timeout"]
+[connection signal="timeout" from="Reset" to="." method="_on_Reset_timeout"]

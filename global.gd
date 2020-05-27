@@ -33,19 +33,13 @@ func next_level():
 		end_game()
 		
 func _deferred_goto_scene(path):
-	print('woop')
-	# It is now safe to remove the current scene
 	current_scene.free()
 
-	# Load the new scene.
 	var s = ResourceLoader.load(path)
 
-	# Instance the new scene.
 	current_scene = s.instance()
 
-	# Add it to the active scene, as child of root.
 	get_tree().get_root().add_child(current_scene)
 
-	# Optionally, to make it compatible with the SceneTree.change_scene() API.
 	get_tree().set_current_scene(current_scene)
 
