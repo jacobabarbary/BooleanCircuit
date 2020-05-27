@@ -1,35 +1,76 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://World.gd" type="Script" id=2]
+[ext_resource path="res://gui/game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Gui.gd" type="Script" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
+const RESET_TIME_LIMIT = 6
+
 onready var world = $World
 onready var gui = $Gui
+onready var global = get_node('/root/Global')
+onready var reset = $Reset
 
 func _ready():
 	call_deferred(\"init\")
 
+
 func init():
-	gui.load_gui('menu')
+	var lvl = load(global.LEVEL_PATH % global.lvl_num).instance()
+	add_child(lvl)
 
 func _process(delta):
 	if Input.is_action_just_pressed(\"ui_pause\"):
 		var tree = get_tree()
 		get_tree().call_group(\"Pause\",\"_on_pause\", !tree.paused)
-		tree.paused = !tree.paused
+#		tree.paused = !tree.paused
 
 func _on_level_win():
 	get_tree().paused = true
+
+func _on_zero_players_connected():
+	start_reset_timer()
+	
+func _on_some_players_connected():
+	stop_reset_timer()
+
+func _on_Reset_timeout():
+	pass
+#	stop_reset_timer()
+#	Global.reset_level()
+
+
+func stop_reset_timer():
+	pass
+#	reset.start(RESET_TIME_LIMIT)
+#	reset.set_paused(true)
+#	get_tree().call_group(\"ResetTimer\",\"_on_reset_timer_stop\", reset)
+	
+func start_reset_timer():
+	pass
+#	reset.start(RESET_TIME_LIMIT)
+#	reset.set_paused(false)
+#	get_tree().call_group(\"ResetTimer\",\"_on_reset_timer_start\", reset)	
+#
 "
 
 [node name="Game" type="Node" groups=[
+"GameEnder",
+"LevelReseter",
+"LevelStarter",
+"NextLevel",
+"Pause",
 "Win",
 ]]
 pause_mode = 2
 script = SubResource( 1 )
+
+[node name="Reset" type="Timer" parent="."]
+pause_mode = 1
+wait_time = 5.0
+one_shot = true
 
 [node name="World" type="Node" parent="." groups=[
 "GameEnder",
@@ -39,12 +80,6 @@ script = SubResource( 1 )
 "Pause",
 "World",
 ]]
-script = ExtResource( 2 )
-
-[node name="Reset" type="Timer" parent="World"]
-pause_mode = 1
-wait_time = 5.0
-one_shot = true
 
 [node name="Gui" type="CanvasLayer" parent="." groups=[
 "GameEnder",
@@ -52,4 +87,6 @@ one_shot = true
 "LevelStarter",
 ]]
 script = ExtResource( 3 )
-[connection signal="timeout" from="World/Reset" to="World" method="_on_Reset_timeout"]
+
+[node name="Gui" parent="Gui" instance=ExtResource( 1 )]
+[connection signal="timeout" from="Reset" to="World" method="_on_Reset_timeout"]

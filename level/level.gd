@@ -7,12 +7,12 @@ var players_connected = {}
 
 onready var players = $Players
 onready var camera = $Camera
-onready var world = get_parent()
+onready var game = get_node('/root/Game')
 
 func _ready():
 	camera.targets = get_players()
 	camera.set_current(true)
-	world._on_some_players_connected()
+	game._on_some_players_connected()
 
 func _on_player_disconnected(player):
 	players_connected.erase(player.name)
@@ -23,11 +23,11 @@ func _on_player_connected(player):
 	_player_connections()
 	
 func _player_connections():
-	if world:
+	if game:
 		if players_connected.size() < 1:
-			world._on_zero_players_connected()
+			game._on_zero_players_connected()
 		else:
-			world._on_some_players_connected()
+			game._on_some_players_connected()
 
 
 func get_players()->Node2D:
