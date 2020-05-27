@@ -54,7 +54,6 @@ func _test_connection():
 
 func try_new_connection():
 	var space_state = get_world_2d().direct_space_state
-	print( nearby.size() )
 	for targ in nearby:
 		if can_connect(space_state, targ):
 			set_connection( targ.get_parent() )
