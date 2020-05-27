@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://gui/game.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Gui.gd" type="Script" id=3]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
@@ -65,12 +64,7 @@ one_shot = true
 
 [node name="World" type="Node" parent="."]
 
-[node name="Gui" type="CanvasLayer" parent="." groups=[
-"GameEnder",
-"GuiChanger",
-"LevelStarter",
-]]
-script = ExtResource( 3 )
+[node name="Gui" type="CanvasLayer" parent="."]
 
 [node name="Gui" parent="Gui" instance=ExtResource( 1 )]
 [connection signal="timeout" from="Reset" to="." method="_on_Reset_timeout"]
