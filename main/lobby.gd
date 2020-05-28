@@ -11,7 +11,6 @@ func _process(delta):
 		if events_times[key] > HOLD_TIME:
 			_create_player(key)
 
-
 func _create_player(key):
 	print('yup!')
 #	TODO: replace this print with a signal or something for a display.

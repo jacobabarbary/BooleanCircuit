@@ -33,13 +33,11 @@ func new(devise_index: int, new_action: String, new_color: Color):
 	print(new_player.name)
 	
 	add_child(new_player)
-	
+
 
 func get_players():
 	return get_children()
 
 func random_color()->Color:
 	return colors[randi() % colors.size()]
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
