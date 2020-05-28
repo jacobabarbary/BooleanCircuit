@@ -5,17 +5,12 @@ const NAME_FORMAT = "player%d"
 const ACTION_FORMAT = "player%dbtn"
 
 
-
-
 var players = []
 var player_num = 0
 
 
 onready var player = load(PLAYER_PATH)
 
-func _ready():
-#	TODO get and save data to json so we can start up with the same players that left
-	print(' woop  woo' )
 
 func add_player(event):
 	player_num += 1

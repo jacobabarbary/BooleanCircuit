@@ -31,5 +31,3 @@ func _tap():
 func _on_profile_updated(new_profile):
 	modulate = profile.color
 	
-
-#	TODO: change color and skin
