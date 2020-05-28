@@ -37,6 +37,8 @@ func new(devise_index: int, new_action: String, new_color: Color):
 	add_child(new_player)
 	return new_player
 
+func get_default():
+	return $Default
 
 func get_players():
 	return get_children()

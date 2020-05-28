@@ -14,7 +14,7 @@ export(Color) var color = Color.white
 export(int) var player_friction = 0.1
 export(int, "PlayerAction","Player2Action") var player_number = 1
 
-var profile = null
+var profile = Profiles.get_default()
 var inputs_pressed = [null, null, null]
 var inputs = ["PlayerAction","Player2Action"]
 var rot_speed = 0.1
@@ -27,13 +27,13 @@ onready var connector = $Connector
 
 func _ready():
 	set_skin(skin)
-	set_color(color)
+	set_color(profile.color)
 
 func _process(delta):
 	inputs_pressed = [
-		Input.is_action_pressed(inputs[player_number]),
-		Input.is_action_just_released(inputs[player_number]),
-		Input.is_action_just_pressed(inputs[player_number])]
+		Input.is_action_pressed(profile.action),
+		Input.is_action_just_released(profile.action),
+		Input.is_action_just_pressed(profile.action)]
 
 
 func _physics_process(delta):
@@ -59,7 +59,6 @@ func launch():
 		charge = 1
 
 func set_color(col: Color)->void:
-	color = col
 	sprite.modulate = col
 
 func set_skin(index)->void:
@@ -67,7 +66,7 @@ func set_skin(index)->void:
 	$Sprite.set_frame(index)
 
 func _on_Connector_connected():
-	$Sprite.modulate = color
+	$Sprite.modulate = profile.color
 	get_tree().call_group("PlayerConnections","_on_player_connected", self)
 
 func _on_Connector_disconnected():
