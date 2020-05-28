@@ -15,7 +15,7 @@ func _ready():
 	call_deferred("init")
 
 func init():
-	var lvl = load(global.LEVEL_PATH % global.lvl_num).instance()
+	var lvl = Global.get_level()
 	add_child(lvl)
 
 

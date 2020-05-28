@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://agents/player/Player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 10.0
+bounce = 5.0
+
+[node name="PlayerBox" type="Node2D"]
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+current = true
+
+[node name="Tower" parent="." instance=ExtResource( 2 )]
+position = Vector2( -178.451, -198.279 )
+
+[node name="Tower2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 193.614, -198.279 )
+
+[node name="Tower3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 193.614, 204.111 )
+
+[node name="Tower4" parent="." instance=ExtResource( 2 )]
+position = Vector2( -214.015, 204.111 )
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+physics_material_override = SubResource( 1 )
+color = Color( 0.784314, 0.164706, 0.164706, 1 )

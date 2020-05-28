@@ -6,7 +6,7 @@ var types = [X_O,PLUS_MINUS,KEY_LOCK]
 
 onready var players = $Players
 onready var camera = $Camera
-onready var game = get_node('/root/Game')
+
 
 
 func _ready():

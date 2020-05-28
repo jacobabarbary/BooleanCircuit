@@ -1,19 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/AtariSmall.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://gui/buttons/quit_game.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/buttons/load_level.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/buttons/load_gui.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/buttons/quit.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/buttons/levels.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/buttons/play.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/buttons/lobby.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
-
-[sub_resource type="InputEventAction" id=2]
-action = "ui_select"
-
-[sub_resource type="ShortCut" id=3]
-resource_local_to_scene = true
-shortcut = SubResource( 2 )
 
 [node name="Gui" type="Control"]
 anchor_right = 1.0
@@ -50,39 +44,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LoadLevel" parent="VBoxContainer" instance=ExtResource( 3 )]
+[node name="Load" parent="VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 87.0
 margin_right = 1026.0
 margin_bottom = 110.0
-focus_neighbour_bottom = NodePath("../LoadGui")
-focus_next = NodePath("../LoadGui")
-shortcut = SubResource( 3 )
-text = "Play"
-lvl_num = 0
 
-[node name="LoadGui" parent="VBoxContainer" instance=ExtResource( 4 )]
+[node name="Load3" parent="VBoxContainer" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 160.0
 margin_right = 1026.0
 margin_bottom = 183.0
-focus_neighbour_top = NodePath("../LoadLevel")
-focus_neighbour_bottom = NodePath("../Quit")
-focus_next = NodePath("../Quit")
-focus_previous = NodePath("../LoadLevel")
-text = "Levels"
-gui_name = "levels"
 
-[node name="Quit" parent="VBoxContainer" instance=ExtResource( 2 )]
+[node name="Load2" parent="VBoxContainer" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 233.0
 margin_right = 1026.0
 margin_bottom = 256.0
+
+[node name="Quit" parent="VBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 306.0
+margin_right = 1026.0
+margin_bottom = 329.0
 focus_neighbour_top = NodePath("../LoadGui")
 focus_previous = NodePath("../LoadGui")

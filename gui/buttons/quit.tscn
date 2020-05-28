@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://gui/buttons/load_gui.gd" type="Script" id=1]
+[ext_resource path="res://gui/buttons/quit.gd" type="Script" id=1]
 [ext_resource path="res://assets/AtariSmall.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
 
-[node name="LoadGui" type="Button"]
+[node name="Quit" type="Button"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 40.0
@@ -14,10 +14,10 @@ margin_top = 40.0
 margin_right = -40.0
 margin_bottom = -40.0
 custom_fonts/font = SubResource( 1 )
-text = "Load Gui"
+text = "Quit"
 flat = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="." to="." method="_on_LoadGui_pressed"]
+[connection signal="pressed" from="." to="." method="_on_Quit_pressed"]
