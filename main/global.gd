@@ -75,7 +75,13 @@ func next_level():
 		end_game()
 
 
-
+func random_color()->Color:
+	randomize()
+	return Color.from_hsv(
+		rand_range(0,1), 
+		rand_range(0.2,0.8),
+		rand_range(0.8,1))
+		
 
 func get_level(num = lvl_num):
 	return load(PATHS['LEVEL'] % num).instance()

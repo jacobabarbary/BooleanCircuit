@@ -6,15 +6,10 @@ const DISCONNECTED_COLOR = Color.gray
 
 enum POLARITIES { POSITIVE, NEGITIVE }
 
-export(int, "#", 'o', '-', 'yen' , '^', 'x' , '+', 
-	'yang', 'sad', 'happy', 'eyes', 'skull' ) var skin = 0 setget set_skin
 
-
-export(Color) var color = Color.white
 export(int) var player_friction = 0.1
-export(int, "PlayerAction","Player2Action") var player_number = 1
 
-var profile = Profiles.get_default()
+var profile: Node = Profiles.get_default()
 var inputs_pressed = [null, null, null]
 var inputs = ["PlayerAction","Player2Action"]
 var rot_speed = 0.1
@@ -26,7 +21,7 @@ onready var sprite = $Sprite
 onready var connector = $Connector
 
 func _ready():
-	set_skin(skin)
+	set_skin(profile.skin)
 	set_color(profile.color)
 
 func _process(delta):
@@ -59,16 +54,20 @@ func launch():
 		charge = 1
 
 func set_color(col: Color)->void:
-	sprite.modulate = col
+	if connector.ray_connected:
+		sprite.modulate = col
 
 func set_skin(index)->void:
-	skin = index
-	$Sprite.set_frame(index)
+	sprite.set_frame(index)
 
 func _on_Connector_connected():
-	$Sprite.modulate = profile.color
+	sprite.modulate = profile.color
 	get_tree().call_group("PlayerConnections","_on_player_connected", self)
 
 func _on_Connector_disconnected():
-	$Sprite.modulate = DISCONNECTED_COLOR
+	sprite.modulate = DISCONNECTED_COLOR
 	get_tree().call_group("PlayerConnections","_on_player_disconnected", self)
+	
+func _on_profile_updated(new_profile):
+	set_color(profile.color)
+	set_skin(profile.skin)
