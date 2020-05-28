@@ -5,6 +5,9 @@ const HOLD_TIME = 1
 var events_times = {}
 var events = {}
 
+onready var icon_box = $CanvasLayer/Control/VBoxContainer/CenterContainer/IconBox
+onready var player_box = $Room/PlayerBox
+
 func _process(delta):
 	for key in events_times.keys():
 		events_times[key] += delta
@@ -13,14 +16,18 @@ func _process(delta):
 
 func _create_player(key):
 	print('yup!')
+
 #	TODO: replace this print with a signal or something for a display.
 #	TODO: make a display / popup for player joining
 #	TODO: add a visusal player to the lobby.
 #	TODO: figure out how to add players on level init
-	Profiles.add_player(events[key])
+
+	var player_profile = Profiles.add_player(events[key])
+	
+	icon_box.add_child(player_profile.get_icon())
+	player_box.add_child(player_profile.get_player())
+#	
 	reset_event_time(key)
-	
-	
 
 func _input(event):
 	match event.get_class():

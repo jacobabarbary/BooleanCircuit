@@ -8,11 +8,13 @@ enum POLARITIES { POSITIVE, NEGITIVE }
 
 export(int, "#", 'o', '-', 'yen' , '^', 'x' , '+', 
 	'yang', 'sad', 'happy', 'eyes', 'skull' ) var skin = 0 setget set_skin
-	
+
+
 export(Color) var color = Color.white
 export(int) var player_friction = 0.1
 export(int, "PlayerAction","Player2Action") var player_number = 1
 
+var profile = null
 var inputs_pressed = [null, null, null]
 var inputs = ["PlayerAction","Player2Action"]
 var rot_speed = 0.1

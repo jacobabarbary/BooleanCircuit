@@ -4,5 +4,5 @@
 
 [node name="Load" instance=ExtResource( 1 )]
 text = "Lobby"
-path_type = "MAIN"
+path_type = "LOBBY"
 val = "lobby"

@@ -7,7 +7,8 @@ const PATHS = {
 		'MAIN' : 'res://main/%s.tscn',
 		'LEVEL' : 'res://level/level_%d.tscn',
 		'ROOT' : 'res://%s.tscn',
-		'LOBBY' : 'res://lobby/%s.tscn'
+		'LOBBY' : 'res://lobby/%s.tscn',
+		'PLAYER' : 'res://agents/player/Player.tscn'
 	}
 
 var lvl_num = 1
@@ -78,7 +79,13 @@ func next_level():
 
 func get_level(num = lvl_num):
 	return load(PATHS['LEVEL'] % num).instance()
+
+func get_player_icon():
+	return load(PATHS['LOBBY'] % 'PlayerIcon').instance()
 	
+func get_player():
+	return load(PATHS['PLAYER']).instance()
+
 func set_lvl_num(val: int)->void:
 	if val > 0 && val <= MAX_LEVELS:
 		lvl_num = val
