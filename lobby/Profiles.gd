@@ -11,6 +11,8 @@ var player_num = 0
 
 onready var player = load(PLAYER_PATH)
 
+func remove_player(player_to_remove):
+	player_to_remove.queue_free()
 
 func add_player(event):
 	player_num += 1

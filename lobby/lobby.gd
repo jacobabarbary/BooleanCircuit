@@ -28,9 +28,19 @@ func _create_player(key):
 	
 	icon_box.add_child(player_profile.get_icon())
 	player_box.add_child(player_profile.get_player())
+	icon_box.get_node(player_profile.name).connect(
+		'remove_player_input', self, "_remove_player", ['remove_profile'])
+#	CONNECT SIGNAL TO PLAYER BOX
 #	
 	clear_event_timer(key)
 
+func _remove_player(remove_profile):
+	print(remove_profile)
+	return
+	icon_box.get_node(remove_profile.name).queue_free()
+	player_box.get_node(remove_profile.name).queue_free()
+	Profiles.remove_player(remove_profile)
+	
 func _input(event):
 	match event.get_class():
 		'InputEventJoypadButton':
@@ -59,8 +69,8 @@ func start_event_timer(event, event_id):
 func clear_event_timer(event_id):
 	events.erase(event_id)
 	events_times.erase(event_id)
-	
-	
+
+
 func event_has_an_action(event):
 	for action in InputMap.get_actions():
 		if InputMap.event_is_action(event, action):

@@ -1,6 +1,5 @@
 extends Node
 
-const ICON_FORMAT = 'PlayerIcon%d'
 const MAX_SKIN_COUNT = 11
 
 export(Color) var color: Color
@@ -14,7 +13,7 @@ export(int, "#", 'o', '-', 'yen' , '^', 'x' , '+',
 func get_icon():
 	var player_icon = Global.get_player_icon()
 	player_icon.modulate = color
-	player_icon.name = ICON_FORMAT % player_id
+	player_icon.name = name
 	player_icon.profile = self
 	return player_icon
 

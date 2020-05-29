@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://lobby/player_icon.gd" type="Script" id=2]
+[ext_resource path="res://agents/player/PlayerInput.tscn" type="PackedScene" id=3]
 
 [node name="PlayerIcon" type="TextureRect" groups=[
 "PlayerProfile",
@@ -13,3 +14,10 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PlayerInput" parent="." groups=[
+"PlayerProfile",
+] instance=ExtResource( 3 )]
+[connection signal="pressed_key" from="PlayerInput" to="." method="_on_PlayerInput_pressed_key"]
+[connection signal="release_held_key" from="PlayerInput" to="." method="_on_PlayerInput_release_held_key"]
+[connection signal="release_tapped_key" from="PlayerInput" to="." method="_on_PlayerInput_release_tapped_key"]
