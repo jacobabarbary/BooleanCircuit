@@ -30,3 +30,5 @@ script = ExtResource( 3 )
 
 [node name="Spawn" parent="SpawnPoints" instance=ExtResource( 1 )]
 position = Vector2( 777.258, 388.629 )
+[connection signal="all_players_spawned" from="SpawnPoints" to="." method="_on_SpawnPoints_all_players_spawned"]
+[connection signal="spawn_player" from="SpawnPoints" to="." method="_on_SpawnPoints_spawn_player"]
