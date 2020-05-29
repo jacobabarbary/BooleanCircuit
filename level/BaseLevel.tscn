@@ -2,20 +2,22 @@
 
 [ext_resource path="res://objects/fence/Fence.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=2]
-[ext_resource path="res://agents/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://level/SpawnPoints.gd" type="Script" id=3]
 [ext_resource path="res://level/level.gd" type="Script" id=4]
 [ext_resource path="res://shared/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=6]
-
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 10.0
-bounce = 5.0
+[ext_resource path="res://objects/spawn/Spawn.tscn" type="PackedScene" id=7]
 
 [node name="Level" type="Node2D" groups=[
 "Level",
 "PlayerConnections",
 ]]
 script = ExtResource( 4 )
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Spawn" parent="SpawnPoints" instance=ExtResource( 7 )]
 
 [node name="Walls" type="Node2D" parent="."]
 
@@ -33,20 +35,6 @@ polygon = PoolVector2Array( 24.8722, -151.566, 33.9161, 158.945, -345.933, 158.9
 polygon = PoolVector2Array( 529.09, 549.545, 509.048, 407.58, 594.227, 332.422, 679.406, 404.239, 639.322, 587.959, 784.627, 626.373, 771.266, 749.966, 313.637, 746.626, 316.977, 604.661 )
 
 [node name="Players" type="Node2D" parent="."]
-
-[node name="player" parent="Players" instance=ExtResource( 3 )]
-position = Vector2( 710.041, 224.828 )
-rotation = -0.0222921
-physics_material_override = SubResource( 1 )
-skin = 6
-color = Color( 1, 0.341176, 0.819608, 1 )
-
-[node name="player2" parent="Players" instance=ExtResource( 3 )]
-position = Vector2( 367.454, 351.463 )
-physics_material_override = SubResource( 1 )
-skin = 2
-color = Color( 0.843137, 0.988235, 0.552941, 1 )
-player_number = 0
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 position = Vector2( 514.415, 300.632 )

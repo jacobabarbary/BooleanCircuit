@@ -2,17 +2,14 @@
 
 [ext_resource path="res://objects/fence/Fence.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=2]
-[ext_resource path="res://agents/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/spawn/Spawn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://level/level.gd" type="Script" id=4]
 [ext_resource path="res://shared/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/key/trigger.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/finish/finish.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/door/door.tscn" type="PackedScene" id=9]
-
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 10.0
-bounce = 5.0
+[ext_resource path="res://level/SpawnPoints.gd" type="Script" id=10]
 
 [node name="Level" type="Node2D" groups=[
 "Level",
@@ -43,20 +40,6 @@ polygon = PoolVector2Array( 647.694, 330.809, 704.02, 411.17, 716.971, 693.926, 
 
 [node name="Players" type="Node2D" parent="."]
 
-[node name="player" parent="Players" instance=ExtResource( 3 )]
-position = Vector2( 475.334, -3.78346 )
-rotation = -0.0222921
-physics_material_override = SubResource( 1 )
-skin = 6
-color = Color( 1, 0.341176, 0.819608, 1 )
-
-[node name="player2" parent="Players" instance=ExtResource( 3 )]
-position = Vector2( 40.793, 246.824 )
-physics_material_override = SubResource( 1 )
-skin = 2
-color = Color( 0.843137, 0.988235, 0.552941, 1 )
-player_number = 0
-
 [node name="Camera" parent="." instance=ExtResource( 5 )]
 position = Vector2( 514.415, 300.632 )
 
@@ -76,6 +59,15 @@ rotation = -0.0222921
 position = Vector2( 913.823, -299.308 )
 rotation = -0.0222921
 type = 1
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Spawn" parent="SpawnPoints" instance=ExtResource( 3 )]
+position = Vector2( 39.6554, 252.352 )
+
+[node name="Spawn2" parent="SpawnPoints" instance=ExtResource( 3 )]
+position = Vector2( 486.679, 6.10352e-05 )
 
 [editable path="Walls/Wall"]
 

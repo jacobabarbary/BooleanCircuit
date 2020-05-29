@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://gui/game.gd" type="Script" id=1]
 [ext_resource path="res://gui/popups/Popup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/buttons/reset_level.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/buttons/end_game.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/buttons/exit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/buttons/next_level.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/buttons/menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/buttons/reset.tscn" type="PackedScene" id=7]
 
 [node name="Gui" type="Control" groups=[
 "Pause",
@@ -30,12 +31,12 @@ __meta__ = {
 
 [node name="Pause" parent="." instance=ExtResource( 2 )]
 title = "Pause"
-buttons = [ ExtResource( 3 ), ExtResource( 4 ) ]
+buttons = [ ExtResource( 7 ), ExtResource( 6 ) ]
 
 [node name="Win" parent="." instance=ExtResource( 2 )]
 visible = true
 title = "Finished"
-buttons = [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ) ]
+buttons = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 3 ) ]
 
 [node name="timer" type="Label" parent="."]
 anchor_left = 1.0
