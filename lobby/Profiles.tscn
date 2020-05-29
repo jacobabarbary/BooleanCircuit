@@ -7,6 +7,14 @@
 pause_mode = 1
 script = ExtResource( 1 )
 
-[node name="Default" parent="." instance=ExtResource( 2 )]
-color = Color( 1, 1, 1, 1 )
-action = "player1action"
+[node name="player1" parent="." instance=ExtResource( 2 )]
+color = Color( 0.972549, 0.321569, 0.321569, 1 )
+action = "player1"
+player_id = 1
+skin = 6
+
+[node name="player2" parent="." instance=ExtResource( 2 )]
+color = Color( 0.34902, 0.772549, 0.176471, 1 )
+action = "player2"
+player_id = 2
+skin = 1

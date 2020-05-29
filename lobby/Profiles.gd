@@ -2,22 +2,21 @@ extends Node
 
 const PLAYER_PATH = 'res://lobby/player.tscn'
 const NAME_FORMAT = "player%d"
-const ACTION_FORMAT = "player%dbtn"
-
 
 var players = []
-var player_num = 0
+var player_num = 2
 
 
 onready var player = load(PLAYER_PATH)
 
 func remove_player(player_to_remove):
-	InputMap.erase_action(player_to_remove.action)
-	player_to_remove.queue_free()
+	if get_child_count() > 1:
+		InputMap.erase_action(player_to_remove.action)
+		player_to_remove.queue_free()
 
 func add_player(event):
 	player_num += 1
-	var action_name = ACTION_FORMAT % player_num
+	var action_name = NAME_FORMAT % player_num
 	InputMap.add_action(action_name)
 	InputMap.action_add_event(action_name , event)
 	return new(event.get_device(), action_name, Global.random_color())
@@ -37,7 +36,7 @@ func new(devise_index: int, new_action: String, new_color: Color, skin = 0):
 
 
 func get_default():
-	return $Default
+	return get_children()[0]
 
 func get_players():
 	return get_children()

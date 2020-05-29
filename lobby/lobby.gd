@@ -6,7 +6,7 @@ var events_times = {}
 var events = {}
 
 onready var icon_box = $CanvasLayer/Control/VBoxContainer/CenterContainer/IconBox
-onready var player_box = $Room/PlayerBox
+onready var player_box = $Room/Players
 
 func _process(delta):
 	_event_timers(delta)
