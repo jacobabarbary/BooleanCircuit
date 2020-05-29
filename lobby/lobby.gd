@@ -22,16 +22,21 @@ func _create_player(key):
 #	TODO: replace this print with a signal or something for a display.
 
 #	TODO: make a display / popup for player joining
-#	TODO: figure out how to add players on level init
 
 	var player_profile = Profiles.add_player(events[key])
 	
+	_init_player(player_profile)
+
+	clear_event_timer(key)
+
+func _on_SpawnPoints_spawn_player(player):
+	_init_player(player.profile)
+
+func _init_player(player_profile):
 	icon_box.add_child(player_profile.get_icon())
 	player_box.add_child(player_profile.get_player())
 	icon_box.get_node(player_profile.name).connect(
 		'remove_player_input', self, "_remove_player")
-
-	clear_event_timer(key)
 
 func _remove_player(player_icon: Node):
 	player_icon.disconnect('remove_player_input', self, "_remove_player")
@@ -73,4 +78,7 @@ func event_has_an_action(event):
 	for action in InputMap.get_actions():
 		if InputMap.event_is_action(event, action):
 			return true
+
+
+
 

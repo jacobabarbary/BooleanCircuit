@@ -130,6 +130,7 @@ margin_left = 204.0
 margin_top = 0.0
 margin_right = 248.0
 margin_bottom = 23.0
+[connection signal="spawn_player" from="Room/SpawnPoints" to="." method="_on_SpawnPoints_spawn_player"]
 
 [editable path="Room/Walls"]
 

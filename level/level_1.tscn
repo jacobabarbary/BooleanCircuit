@@ -58,6 +58,8 @@ position = Vector2( -40.2806, 339.866 )
 
 [node name="Spawn2" parent="SpawnPoints" instance=ExtResource( 3 )]
 position = Vector2( 412.874, 337.349 )
+[connection signal="all_players_spawned" from="SpawnPoints" to="." method="_on_SpawnPoints_all_players_spawned"]
+[connection signal="spawn_player" from="SpawnPoints" to="." method="_on_SpawnPoints_spawn_player"]
 
 [editable path="Walls/Wall2"]
 
