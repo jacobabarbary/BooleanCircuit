@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://objects/fence/Fence.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=2]
+[ext_resource path="res://level/SpawnPoints.gd" type="Script" id=3]
 [ext_resource path="res://level/level.gd" type="Script" id=4]
 [ext_resource path="res://shared/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=6]
@@ -77,8 +78,9 @@ position = Vector2( 915.333, 309.748 )
 position = Vector2( 908.719, 823.397 )
 
 [node name="SpawnPoints" type="Node2D" parent="."]
+script = ExtResource( 3 )
 
-[node name="Spawn" type="Position2D" parent="SpawnPoints" instance=ExtResource( 10 )]
+[node name="Spawn" parent="SpawnPoints" instance=ExtResource( 10 )]
 position = Vector2( 934.003, 485.883 )
 
 [editable path="Walls/Wall"]

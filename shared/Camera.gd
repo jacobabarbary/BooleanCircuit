@@ -12,8 +12,9 @@ onready var camera = $Camera
 
 
 func _process(delta):
-	_position()
-	_zoom()
+	if !targets.empty():
+		_position()
+		_zoom()
 
 
 func _zoom():
