@@ -31,7 +31,6 @@ func _create_player(key):
 	icon_box.get_node(player_profile.name).connect(
 		'remove_player_input', self, "_remove_player")
 
-#	
 	clear_event_timer(key)
 
 func _remove_player(player_icon: Node):

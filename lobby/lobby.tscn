@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://lobby/lobby.gd" type="Script" id=1]
 [ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/buttons/menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/buttons/play.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/buttons/levels.tscn" type="PackedScene" id=5]
 
 [node name="Lobby" type="Node" groups=[
 "PlayerProfiles",
@@ -87,13 +89,40 @@ custom_constants/vseparation = 50
 custom_constants/hseparation = 50
 columns = 8
 
-[node name="Load" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource( 3 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/Control/VBoxContainer"]
 margin_top = 597.0
 margin_right = 1280.0
 margin_bottom = 620.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/CenterContainer2"]
+margin_left = 516.0
+margin_right = 764.0
+margin_bottom = 23.0
+custom_constants/separation = 50
+
+[node name="Load2" parent="CanvasLayer/Control/VBoxContainer/CenterContainer2/HBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 44.0
+margin_bottom = 23.0
+
+[node name="Load3" parent="CanvasLayer/Control/VBoxContainer/CenterContainer2/HBoxContainer" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 94.0
+margin_top = 0.0
+margin_right = 154.0
+margin_bottom = 23.0
+
+[node name="Load" parent="CanvasLayer/Control/VBoxContainer/CenterContainer2/HBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 204.0
+margin_top = 0.0
+margin_right = 248.0
+margin_bottom = 23.0
 
 [editable path="Room/Walls"]
 
