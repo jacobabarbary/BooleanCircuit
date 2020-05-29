@@ -30,13 +30,12 @@ func _create_player(key):
 	player_box.add_child(player_profile.get_player())
 	icon_box.get_node(player_profile.name).connect(
 		'remove_player_input', self, "_remove_player")
-#	CONNECT SIGNAL TO PLAYER BOX
-#connect("hit", self, "_on_Player_hit", [ weapon_type, damage ]) # weapon_type and damage are passed last
 
 #	
 	clear_event_timer(key)
 
 func _remove_player(player_icon: Node):
+	player_icon.disconnect('remove_player_input', self, "_remove_player")
 	icon_box.get_node(player_icon.name).queue_free()
 	player_box.get_node(player_icon.name).queue_free()
 	Profiles.remove_player(player_icon.profile)
