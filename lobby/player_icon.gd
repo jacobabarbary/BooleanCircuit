@@ -18,8 +18,12 @@ func _on_PlayerInput_pressed_key():
 
 func _on_PlayerInput_release_held_key(hold_time):
 	print('held released')
-	emit_signal('remove_player_input')
+
 
 func _on_PlayerInput_release_tapped_key(hold_time):
 	print('tap')
 	profile.randomize_style()
+
+
+func _on_PlayerInput_holding_key():
+	emit_signal('remove_player_input', self)

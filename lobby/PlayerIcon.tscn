@@ -18,6 +18,7 @@ __meta__ = {
 [node name="PlayerInput" parent="." groups=[
 "PlayerProfile",
 ] instance=ExtResource( 3 )]
+[connection signal="holding_key" from="PlayerInput" to="." method="_on_PlayerInput_holding_key"]
 [connection signal="pressed_key" from="PlayerInput" to="." method="_on_PlayerInput_pressed_key"]
 [connection signal="release_held_key" from="PlayerInput" to="." method="_on_PlayerInput_release_held_key"]
 [connection signal="release_tapped_key" from="PlayerInput" to="." method="_on_PlayerInput_release_tapped_key"]
