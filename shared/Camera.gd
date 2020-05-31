@@ -1,6 +1,6 @@
 extends Node2D
 
-const MIN_ZOOM = 0.8
+const MIN_ZOOM = 0.7
 
 const ZOOM_SCALE_OFFSET = 0.002
 
@@ -13,23 +13,17 @@ var max_corner: Vector2 = Vector2.ZERO
 var min_corner: Vector2 = Vector2.ZERO
 var boundary_size: Vector2 = Vector2.ZERO
 
+
 export(Array) var targets: Array
 
+onready var screen = get_viewport().size
 onready var camera = $Camera
 
 
-func _draw():
-
-	for targ in targets:
-		draw_circle(targ.position - position, 60, Color.red)
-
-	draw_circle(max_corner - position, 10, Color.green)
-	draw_circle(min_corner - position, 10, Color.yellow)
-
 func _process(delta):
 	update()
+	
 	if !targets.empty():
-
 		_math()
 		_position()
 		_zoom()
@@ -59,9 +53,9 @@ func _math():
 
 func get_zoom()->float:
 	boundary_size = (max_corner - min_corner)
-#	print(boundary_size)
-	return max( max( boundary_size.x, boundary_size.y 
-			) * ZOOM_SCALE_OFFSET , MIN_ZOOM )
+
+	return max( ( max( boundary_size.x, boundary_size.y 
+			) ) * ZOOM_SCALE_OFFSET , MIN_ZOOM )
 
 
 func set_current(val: bool):
