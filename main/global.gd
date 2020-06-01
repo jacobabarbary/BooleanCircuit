@@ -11,7 +11,7 @@ const PATHS = {
 		'PLAYER' : 'res://agents/player/Player.tscn'
 	}
 
-var lvl_num = 1
+var lvl_num = 5
 var current_scene = null
 
 

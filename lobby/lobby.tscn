@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://lobby/lobby.gd" type="Script" id=1]
 [ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=2]
@@ -7,11 +7,14 @@
 [ext_resource path="res://gui/buttons/levels.tscn" type="PackedScene" id=5]
 [ext_resource path="res://level/SpawnPoints.gd" type="Script" id=6]
 [ext_resource path="res://objects/spawn/Spawn.tscn" type="PackedScene" id=7]
+[ext_resource path="res://shared/GuiBackground.tscn" type="PackedScene" id=8]
 
 [node name="Lobby" type="Node" groups=[
 "PlayerProfiles",
 ]]
 script = ExtResource( 1 )
+
+[node name="background" parent="." instance=ExtResource( 8 )]
 
 [node name="Room" type="Node2D" parent="."]
 position = Vector2( 646.608, 363.054 )
@@ -50,7 +53,7 @@ polygon = PoolVector2Array( 1382.12, 712.491, 1382.74, 838.273, -25.5816, 867.88
 [node name="SpawnPoints" type="Node2D" parent="Room"]
 script = ExtResource( 6 )
 
-[node name="Spawn" type="Position2D" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+[node name="Spawn" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

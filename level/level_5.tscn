@@ -23,7 +23,32 @@ position = Vector2( 514.415, 300.632 )
 [node name="Tower" parent="." groups=[
 "PlayerConnections",
 ] instance=ExtResource( 2 )]
-position = Vector2( 776.029, 297.771 )
+position = Vector2( 1241.6, 854.903 )
+
+[node name="Tower2" parent="." groups=[
+"PlayerConnections",
+] instance=ExtResource( 2 )]
+position = Vector2( 224.741, 500.365 )
+
+[node name="Tower3" parent="." groups=[
+"PlayerConnections",
+] instance=ExtResource( 2 )]
+position = Vector2( 1072.13, 356.211 )
+
+[node name="Tower4" parent="." groups=[
+"PlayerConnections",
+] instance=ExtResource( 2 )]
+position = Vector2( 735.121, 671.79 )
+
+[node name="Tower5" parent="." groups=[
+"PlayerConnections",
+] instance=ExtResource( 2 )]
+position = Vector2( 589.02, 167.254 )
+
+[node name="Tower6" parent="." groups=[
+"PlayerConnections",
+] instance=ExtResource( 2 )]
+position = Vector2( 1044.86, -111.312 )
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 script = ExtResource( 3 )
