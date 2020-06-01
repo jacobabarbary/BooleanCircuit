@@ -1,70 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/AtariSmall.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://gui/buttons/quit.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/background1.png" type="Texture" id=3]
-[ext_resource path="res://shared/Parallax.gd" type="Script" id=4]
+[ext_resource path="res://shared/GuiBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://gui/buttons/lobby.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/background2.png" type="Texture" id=6]
-[ext_resource path="res://assets/background4.png" type="Texture" id=7]
-[ext_resource path="res://assets/background3.png" type="Texture" id=8]
-[ext_resource path="res://shared/titleCam.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
 
 [node name="Gui" type="Node"]
 
-[node name="background" type="Node2D" parent="."]
-
-[node name="cam" type="Position2D" parent="background"]
-script = ExtResource( 9 )
-
-[node name="Camera2D" type="Camera2D" parent="background/cam"]
-position = Vector2( 641.065, 358.306 )
-current = true
-smoothing_enabled = true
-smoothing_speed = 1.0
-
-[node name="Parallax" type="ParallaxBackground" parent="background"]
-script = ExtResource( 4 )
-
-[node name="TextureRect" type="TextureRect" parent="background/Parallax"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="background/Parallax"]
-motion_scale = Vector2( 1.2, 1.2 )
-
-[node name="LargePlanets" type="Sprite" parent="background/Parallax/ParallaxLayer"]
-position = Vector2( 641.065, 375.471 )
-texture = ExtResource( 3 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 1920, 1080 )
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="background/Parallax"]
-motion_scale = Vector2( 0.4, 0.4 )
-
-[node name="SmallPlanets" type="Sprite" parent="background/Parallax/ParallaxLayer2"]
-position = Vector2( 641.065, 358.306 )
-texture = ExtResource( 6 )
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="background/Parallax"]
-motion_scale = Vector2( 0.6, 0.6 )
-
-[node name="LargeStars" type="Sprite" parent="background/Parallax/ParallaxLayer3"]
-position = Vector2( 641.065, 368.022 )
-texture = ExtResource( 8 )
-
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="background/Parallax"]
-motion_scale = Vector2( 0.2, 0.2 )
-
-[node name="SmallStars" type="Sprite" parent="background/Parallax/ParallaxLayer4"]
-position = Vector2( 641.065, 352.471 )
-texture = ExtResource( 7 )
+[node name="background" parent="." instance=ExtResource( 3 )]
 
 [node name="Gui" type="CanvasLayer" parent="."]
 
