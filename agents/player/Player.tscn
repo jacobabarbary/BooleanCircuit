@@ -30,7 +30,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "2"
 length = 0.1
 tracks/0/type = "value"
@@ -46,7 +46,7 @@ tracks/0/keys = {
 "values": [ 2 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 resource_name = "3"
 length = 0.1
 tracks/0/type = "value"
@@ -62,7 +62,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 resource_name = "3 (copy) (copy) (copy) (copy) (copy)"
 length = 0.1
 tracks/0/type = "value"
@@ -78,7 +78,7 @@ tracks/0/keys = {
 "values": [ 3 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=7]
 resource_name = "4"
 length = 0.1
 tracks/0/type = "value"
@@ -94,7 +94,7 @@ tracks/0/keys = {
 "values": [ 4 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=8]
 resource_name = "5"
 length = 0.1
 tracks/0/type = "value"
@@ -110,8 +110,7 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "6"
+[sub_resource type="Animation" id=9]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Thrust:frame")
@@ -126,8 +125,7 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "7"
+[sub_resource type="Animation" id=10]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Thrust:frame")
@@ -142,8 +140,7 @@ tracks/0/keys = {
 "values": [ 7 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "idle"
+[sub_resource type="Animation" id=11]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Pivot/Thrust:frame")
@@ -220,14 +217,23 @@ hframes = 4
 [node name="AnimThrust" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/1 = SubResource( 3 )
-anims/2 = SubResource( 5 )
-anims/3 = SubResource( 6 )
-"anims/3 (copy) (copy) (copy) (copy) (copy)" = SubResource( 9 )
-anims/4 = SubResource( 10 )
-anims/5 = SubResource( 11 )
-anims/6 = SubResource( 7 )
-anims/7 = SubResource( 8 )
-anims/idle = SubResource( 4 )
+anims/2 = SubResource( 4 )
+anims/3 = SubResource( 5 )
+"anims/3 (copy) (copy) (copy) (copy) (copy)" = SubResource( 6 )
+anims/4 = SubResource( 7 )
+anims/5 = SubResource( 8 )
+anims/6 = SubResource( 9 )
+anims/7 = SubResource( 10 )
+anims/idle = SubResource( 11 )
+
+[node name="Timeout" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="holding_key" from="PlayerInput" to="." method="_on_PlayerInput_holding_key"]
+[connection signal="release_held_key" from="PlayerInput" to="." method="_on_PlayerInput_release_held_key"]
 [connection signal="release_key" from="PlayerInput" to="." method="_on_PlayerInput_release_key"]
+[connection signal="release_pressed_key" from="PlayerInput" to="." method="_on_PlayerInput_release_pressed_key"]
+[connection signal="release_tapped_key" from="PlayerInput" to="." method="_on_PlayerInput_release_tapped_key"]
 [connection signal="connected" from="Connector" to="." method="_on_Connector_connected"]
 [connection signal="disconnected" from="Connector" to="." method="_on_Connector_disconnected"]
+[connection signal="timeout" from="Timeout" to="." method="_on_Timeout_timeout"]

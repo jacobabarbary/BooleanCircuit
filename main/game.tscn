@@ -18,14 +18,10 @@ script = ExtResource( 1 )
 
 [node name="Parallax" parent="." instance=ExtResource( 3 )]
 
-[node name="Reset" type="Timer" parent="."]
-pause_mode = 1
-wait_time = 5.0
-one_shot = true
-
 [node name="World" type="Node" parent="."]
 
 [node name="Gui" type="CanvasLayer" parent="."]
 
-[node name="Gui" parent="Gui" instance=ExtResource( 2 )]
-[connection signal="timeout" from="Reset" to="." method="_on_Reset_timeout"]
+[node name="Gui" parent="Gui" groups=[
+"PlayerConnections",
+] instance=ExtResource( 2 )]

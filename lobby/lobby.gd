@@ -7,6 +7,7 @@ var events = {}
 
 onready var icon_box = $CanvasLayer/Control/VBoxContainer/CenterContainer/IconBox
 onready var player_box = $Room/Players
+onready var spawnpoint = $Room/SpawnPoints/Spawn
 
 func _process(delta):
 	_event_timers(delta)
@@ -35,8 +36,11 @@ func _on_SpawnPoints_spawn_player(player):
 func _init_player(player_profile):
 	icon_box.add_child(player_profile.get_icon())
 	player_box.add_child(player_profile.get_player())
+	var player = player_box.get_node(player_profile.name)
 	icon_box.get_node(player_profile.name).connect(
 		'remove_player_input', self, "_remove_player")
+	player.checkpoint = spawnpoint
+	player.respawn()
 
 func _remove_player(player_icon: Node):
 	player_icon.disconnect('remove_player_input', self, "_remove_player")
