@@ -44,7 +44,6 @@ __meta__ = {
 }
 
 [node name="Layer3" type="ParallaxLayer" parent="."]
-position = Vector2( -6.33801, 6.33813 )
 motion_scale = Vector2( 0.8, 0.8 )
 motion_mirroring = Vector2( 3840, 3840 )
 

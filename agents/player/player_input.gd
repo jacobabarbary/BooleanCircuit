@@ -5,6 +5,7 @@ const HOLD = 3
 
 var profile: Node = Profiles.get_default()
 var held = -1
+var is_pressed = false
 
 
 signal pressed_key()
@@ -25,6 +26,7 @@ func _input(event):
 	if event.is_action_pressed(profile.action):
 		held = 0
 		emit_signal("pressed_key")
+		is_pressed = true
 	elif event.is_action_released(profile.action):
 		if held < TAP:
 			emit_signal("release_tapped_key", held)
@@ -33,4 +35,5 @@ func _input(event):
 		else:
 			emit_signal("release_pressed_key", held)
 		emit_signal("release_key", held)
+		is_pressed = false
 		held = -1

@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_SKIN_COUNT = 11
+const MAX_SKIN_COUNT = 12
 
 export(Color) var color: Color
 export(int) var devise: int
