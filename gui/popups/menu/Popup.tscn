@@ -1,11 +1,12 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/AtariSmall.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://gui/popups/Popup.gd" type="Script" id=2]
+[ext_resource path="res://gui/popups/menu/Popup.gd" type="Script" id=1]
+[ext_resource path="res://assets/AtariSmall.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://gui/buttons/load_level.tscn" type="PackedScene" id=3]
 
+
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 
 [node name="Popup" type="Popup" groups=[
 "LevelNext",
@@ -17,7 +18,7 @@ margin_left = 200.0
 margin_top = 100.0
 margin_right = -200.0
 margin_bottom = -100.0
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

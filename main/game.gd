@@ -37,9 +37,4 @@ func _player_connections():
 	else:
 		get_tree().call_group("PlayerConnections","_on_some_players_connected")
 
-func _on_zero_players_connected():
-	print("zero")
-	
-func _on_some_players_connected():
-	print("some")
 
