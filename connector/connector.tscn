@@ -10,7 +10,6 @@
 radius = 303.52
 
 [sub_resource type="AnimatedTexture" id=3]
-flags = 6
 frames = 4
 frame_0/texture = ExtResource( 1 )
 frame_1/texture = ExtResource( 4 )

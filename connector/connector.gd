@@ -76,9 +76,11 @@ func reset_connection()->void:
 
 func set_connection(connector)->void:
 	connection = connector
-	line.visible = true
 	if connector.connection == self:
-		connector.line.visible = false
+		connector.line.visible = true
+		line.visible = false
+	else:
+		line.visible = true
 
 func can_connect(space_state, targ)->bool:
 	return not space_state.intersect_ray(
