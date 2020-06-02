@@ -10,6 +10,7 @@ var rot_speed = 0.1
 var speed = 150
 var charge = 1
 var CHARGE_SPEED = speed / 2
+var checkpoint: Node2D
 
 onready var body = $Pivot/Skins/Body
 onready var connector = $Connector
@@ -47,6 +48,9 @@ func _on_PlayerInput_release_key(hold_time):
 	if connector.ray_connected:
 		launch()
 
+func _on_PlayerInput_holding_key():
+	if not connector.ray_connected:
+		respawn()
 
 
 func _aim(delta):
@@ -65,7 +69,8 @@ func launch():
 	thrust.play("%d" % ( randi()%7+1 ))
 	thrust.queue("idle")
 
-
+func respawn():
+	position = checkpoint.position
 
 func set_color(col: Color)->void:
 	if connector.ray_connected:
@@ -74,3 +79,9 @@ func set_color(col: Color)->void:
 func set_skin(index)->void:
 	for sprite in skins.get_children():
 		sprite.set_frame(index)
+
+
+
+
+
+

@@ -228,6 +228,7 @@ anims/5 = SubResource( 11 )
 anims/6 = SubResource( 7 )
 anims/7 = SubResource( 8 )
 anims/idle = SubResource( 4 )
+[connection signal="holding_key" from="PlayerInput" to="." method="_on_PlayerInput_holding_key"]
 [connection signal="release_key" from="PlayerInput" to="." method="_on_PlayerInput_release_key"]
 [connection signal="connected" from="Connector" to="." method="_on_Connector_connected"]
 [connection signal="disconnected" from="Connector" to="." method="_on_Connector_disconnected"]
