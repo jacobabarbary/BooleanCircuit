@@ -54,6 +54,40 @@ polygon = PoolVector2Array( 1382.12, 712.491, 1382.74, 838.273, -25.5816, 867.88
 script = ExtResource( 6 )
 
 [node name="Spawn" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( -7.03235, -196.905 )
+
+[node name="Spawn2" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( -3.51617, -58.0168 )
+
+[node name="Spawn3" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( 159.986, -52.7425 )
+
+[node name="Spawn4" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( -182.841, -79.1138 )
+
+[node name="Spawn5" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( -8.79041, 84.3881 )
+
+[node name="Spawn6" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( 156.47, 79.1138 )
+
+[node name="Spawn7" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( -188.115, 94.9366 )
+
+[node name="Spawn8" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( -184.599, -203.938 )
+
+[node name="Spawn9" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( 159.986, -189.873 )
+
+[node name="Spawn10" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( 307.665, -47.4683 )
+
+[node name="Spawn11" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( -353.375, -68.5653 )
+
+[node name="Spawn12" parent="Room/SpawnPoints" instance=ExtResource( 7 )]
+position = Vector2( -6.10352e-05, 188.115 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
