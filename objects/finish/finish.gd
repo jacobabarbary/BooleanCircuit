@@ -1,9 +1,6 @@
-extends Node2D
+extends Area2D
 
-onready var timer = $Timer
+var flag_data = []
 
-func _on_Connector_connected():
-	timer.start(1)
-
-func _on_Timer_timeout():
-	get_tree().call_group("Win","_on_level_win")
+func _on_Area2D_body_entered(body):
+	flag_data = [body,self]
