@@ -13,7 +13,7 @@ const PATHS = {
 
 var lvl_num = 5
 var current_scene = null
-
+var judge = true
 
 
 func _ready():
@@ -82,6 +82,9 @@ func random_color()->Color:
 		rand_range(0.6,1),
 		1)
 		
+func judge_connection():
+	judge = !judge
+	return judge
 
 func get_level(num = lvl_num):
 	return load(PATHS['LEVEL'] % num).instance()

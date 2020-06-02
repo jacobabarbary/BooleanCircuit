@@ -37,6 +37,7 @@ func _connection():
 
 
 func _ray_connection_signals()->void:
+
 	if ray_connected != ray_was_connected || ray_was_connected == null:
 		emit_signal("connection_changed",ray_connected)
 		if ray_connected:
@@ -76,6 +77,8 @@ func reset_connection()->void:
 func set_connection(connector)->void:
 	connection = connector
 	line.visible = true
+	if connector.connection == self:
+		connector.line.visible = false
 
 func can_connect(space_state, targ)->bool:
 	return not space_state.intersect_ray(
