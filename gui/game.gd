@@ -17,9 +17,6 @@ func _process(delta):
 func _on_level_win():
 	win_popup.visible = true
 
-func _on_all_players_disconnected():
-	pass
-
 func _on_reset_timer_start(reset):
 	reset_timer = reset
 	
