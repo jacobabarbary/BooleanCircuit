@@ -19,12 +19,16 @@ func _init():
 	emit_signal("all_players_spawned")
 	
 func add_player(player):
-	player.position = get_spawn_position()
+	player.checkpoint = get_spawn_point()
+	player.respawn()
 	emit_signal("spawn_player", player)
+	_spawn_index()
 
-func get_spawn_position():
+func _spawn_index():
 	spawn_index += 1
 	if not spawn_index < get_child_count():
 		spawn_index = 0
-	return get_children()[spawn_index].position
+		
+func get_spawn_point():
+	return get_children()[spawn_index]
 
