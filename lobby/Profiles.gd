@@ -19,10 +19,10 @@ func add_player(event):
 	var action_name = NAME_FORMAT % player_num
 	InputMap.add_action(action_name)
 	InputMap.action_add_event(action_name , event)
-	return new(event.get_device(), action_name, Global.random_color())
+	return new(event.get_device(), action_name)
 
 
-func new(devise_index: int, new_action: String, new_color: Color, skin = 0):
+func new(devise_index: int, new_action: String):
 	var new_player = player.instance()
 
 	new_player.devise = devise_index

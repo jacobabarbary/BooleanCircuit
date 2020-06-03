@@ -15,11 +15,11 @@ signal connection_changed(val)
 signal connected()
 signal disconnected()
 
-func _physics_process(delta): 
+func _physics_process(_delta): 
 	_test_connection()
 	update_line()
 
-func _on_DetectBox_area_entered(area):
+func _on_DetectBox_area_entered(_area):
 	update_nearby()
 	_connection()
 

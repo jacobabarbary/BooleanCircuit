@@ -17,7 +17,7 @@ func init():
 	add_child(lvl)
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_pause"):
 		var tree = get_tree()
 		get_tree().call_group("Pause","_on_pause", !tree.paused)

@@ -231,7 +231,6 @@ wait_time = 2.0
 one_shot = true
 [connection signal="holding_key" from="PlayerInput" to="." method="_on_PlayerInput_holding_key"]
 [connection signal="release_held_key" from="PlayerInput" to="." method="_on_PlayerInput_release_held_key"]
-[connection signal="release_key" from="PlayerInput" to="." method="_on_PlayerInput_release_key"]
 [connection signal="release_pressed_key" from="PlayerInput" to="." method="_on_PlayerInput_release_pressed_key"]
 [connection signal="release_tapped_key" from="PlayerInput" to="." method="_on_PlayerInput_release_tapped_key"]
 [connection signal="connected" from="Connector" to="." method="_on_Connector_connected"]
