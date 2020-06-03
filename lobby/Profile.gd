@@ -26,7 +26,6 @@ func get_player():
 func random_style():
 	color = Global.random_color()
 	skin = randi()%MAX_SKIN_COUNT
-	print(skin)
 
 func randomize_style():
 	random_style()

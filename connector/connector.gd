@@ -83,6 +83,8 @@ func set_connection(connector)->void:
 		line.visible = true
 
 func can_connect(space_state, targ)->bool:
+#	if not targ.is_inside_tree():
+#		return false
 	return not space_state.intersect_ray(
 		global_position, targ.global_position, 
 		[self], detectbox.collision_mask

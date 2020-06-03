@@ -16,12 +16,7 @@ func _on_PlayerInput_pressed_key():
 	pass # Replace with function body.
 
 
-func _on_PlayerInput_release_held_key(_hold_time):
-	print('held released')
-
-
 func _on_PlayerInput_release_tapped_key(_hold_time):
-	print('tap')
 	profile.randomize_style()
 
 
