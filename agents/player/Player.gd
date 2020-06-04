@@ -7,9 +7,9 @@ var CHARGE_ROT = 0.2
 export(int) var player_friction = 0.1
 
 var profile: Node = Profiles.get_default()
-var rot = 0.1
+var rot = 5
 var rot_mod = 1 
-var speed = 150
+var speed = 180
 var charge = 1
 var is_frozen = false
 
@@ -25,7 +25,6 @@ onready var input = $PlayerInput
 onready var timeout = $Timeout
 
 func _ready():
-	print(friction)
 	input.profile = profile	
 	set_skin(profile.skin)
 	set_color(profile.color)
@@ -46,12 +45,9 @@ func _on_Connector_disconnected():
 	body.modulate = DISCONNECTED_COLOR
 	get_tree().call_group("PlayerConnections","_on_player_disconnected", self)
 	
-func _on_profile_updated(new_profile):
+func _on_profile_updated(_new_profile):
 	set_color(profile.color)
 	set_skin(profile.skin)
-
-func _on_PlayerInput_release_key(hold_time):
-	pass
 
 func _on_PlayerInput_holding_key():
 	if not connector.ray_connected:
@@ -60,13 +56,13 @@ func _on_PlayerInput_holding_key():
 	else:
 		rot_mod = CHARGE_ROT
 
-func _on_PlayerInput_release_tapped_key(hold_time):
+func _on_PlayerInput_release_tapped_key(_hold_time):
 	_launch()
 
-func _on_PlayerInput_release_pressed_key(hold_time):
+func _on_PlayerInput_release_pressed_key(_hold_time):
 	_launch()
 
-func _on_PlayerInput_release_held_key(hold_time):
+func _on_PlayerInput_release_held_key(_hold_time):
 	if not is_frozen:
 		_boost()
 	else:
@@ -87,7 +83,7 @@ func _boost():
 
 func _aim(delta):
 	if input.is_pressed:
-		pivot.rotate(rot * rot_mod)
+		pivot.rotate(rot * rot_mod * delta)
 
 func _friction(delta):
 	linear_velocity = linear_velocity - linear_velocity * 0.9 * delta

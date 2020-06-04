@@ -22,8 +22,6 @@ func _create_player(key):
 	print('yup!')
 #	TODO: replace this print with a signal or something for a display.
 
-#	TODO: make a display / popup for player joining
-
 	var player_profile = Profiles.add_player(events[key])
 	
 	_init_player(player_profile)

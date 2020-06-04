@@ -8,7 +8,7 @@ func _ready():
 	$PlayerInput.profile = profile
 
 
-func _on_profile_updated(new_profile):
+func _on_profile_updated(_new_profile):
 	modulate = profile.color
 
 
@@ -16,12 +16,7 @@ func _on_PlayerInput_pressed_key():
 	pass # Replace with function body.
 
 
-func _on_PlayerInput_release_held_key(hold_time):
-	print('held released')
-
-
-func _on_PlayerInput_release_tapped_key(hold_time):
-	print('tap')
+func _on_PlayerInput_release_tapped_key(_hold_time):
 	profile.randomize_style()
 
 

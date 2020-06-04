@@ -47,7 +47,6 @@ func load_scene(path: String):
 
 
 func _deferred_goto_scene(path):
-	print(path)
 	current_scene.free()
 
 	var s = ResourceLoader.load(path)

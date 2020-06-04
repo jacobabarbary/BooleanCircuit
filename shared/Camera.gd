@@ -20,7 +20,7 @@ onready var screen = get_viewport().size
 onready var camera = $Camera
 
 
-func _process(delta):
+func _process(_delta):
 	update()
 	
 	if !targets.empty():
