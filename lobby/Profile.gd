@@ -6,8 +6,7 @@ export(Color) var color: Color
 export(int) var devise: int
 export(String) var action: String
 export(int) var player_id: int
-export(int, "#", 'o', '-', 'yen' , '^', 'x' , '+', 
-	'yang', 'sad', 'happy', 'eyes', 'skull' ) var skin = 0
+export(int, "#", 'o', '-', 'yen' , '^', 'x' , '+', 'yang', 'sad', 'happy', 'eyes', 'skull' ) var skin = 0
 
 
 func get_icon():

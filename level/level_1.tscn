@@ -1,70 +1,45 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://objects/fence/Fence.tscn" type="PackedScene" id=1]
-[ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/spawn/Spawn.tscn" type="PackedScene" id=3]
-[ext_resource path="res://level/level.gd" type="Script" id=4]
-[ext_resource path="res://shared/Camera.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/wall/Wall.tscn" type="PackedScene" id=6]
-[ext_resource path="res://level/SpawnPoints.gd" type="Script" id=7]
-[ext_resource path="res://objects/finish/finish.tscn" type="PackedScene" id=9]
+[ext_resource path="res://level/level.gd" type="Script" id=1]
+[ext_resource path="res://objects/finish/finish.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/fence/Fence.tscn" type="PackedScene" id=3]
+[ext_resource path="res://shared/Camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/tower/Tower.tscn" type="PackedScene" id=5]
+[ext_resource path="res://level/SpawnPoints.gd" type="Script" id=6]
+[ext_resource path="res://objects/spawn/Spawn.tscn" type="PackedScene" id=7]
 
 [node name="Level" type="Node2D" groups=[
 "Level",
 "PlayerConnections",
 ]]
 pause_mode = 1
-script = ExtResource( 4 )
+script = ExtResource( 1 )
 
-[node name="Finish" parent="." instance=ExtResource( 9 )]
+[node name="Finish" parent="." instance=ExtResource( 2 )]
 position = Vector2( 977.706, 359.226 )
-
-[node name="Walls" type="Node2D" parent="."]
-
-[node name="Wall2" parent="Walls" instance=ExtResource( 6 )]
-
-[node name="CollisionPolygon2D" parent="Walls/Wall2" index="0"]
-polygon = PoolVector2Array( 1173.79, 286.476, 1129.75, 418.61, 1133.92, 852.283, 901.035, 924.203, 551.708, 889.955, 257.177, 718.716, 27.7167, 660.495, -85.301, 1263.26, 2270.95, 1276.96, 2103.13, 266.646 )
-
-[node name="Wall3" parent="Walls" instance=ExtResource( 6 )]
-
-[node name="CollisionPolygon2D" parent="Walls/Wall3" index="0"]
-position = Vector2( -634.907, 487.108 )
-polygon = PoolVector2Array( 1776.44, -118.039, 1803.71, -456.577, 1612.85, -629.254, 1262.96, -638.343, 798.154, -594.251, 681.306, -333.886, 454.099, -302.077, 335.952, -163.48, 395.025, 45.5497, 672.218, 172.785, 672.927, 779.455, -340.276, 794.634, -404.787, -1193.82, 2798, -1360.79, 2752.46, -93.3416 )
-
-[node name="Wall4" parent="Walls" instance=ExtResource( 6 )]
-
-[node name="CollisionPolygon2D" parent="Walls/Wall4" index="0"]
-position = Vector2( -625.861, 494.862 )
-polygon = PoolVector2Array( 1354.85, -462.81, 1365.19, -28.5796, 1345.81, 175.612, 1487.97, 185.951, 1499.6, -35.0414, 1512.52, -241.818, 1499.6, -467.979 )
 
 [node name="Fencing" type="Node2D" parent="."]
 
-[node name="Fence" parent="Fencing" instance=ExtResource( 1 )]
+[node name="Fence" parent="Fencing" instance=ExtResource( 3 )]
 
 [node name="Players" type="Node2D" parent="."]
 
-[node name="Camera" parent="." instance=ExtResource( 5 )]
+[node name="Camera" parent="." instance=ExtResource( 4 )]
 position = Vector2( 514.415, 300.632 )
 
-[node name="Tower" parent="." instance=ExtResource( 2 )]
-position = Vector2( 545.353, 349.418 )
+[node name="Tower" parent="." instance=ExtResource( 5 )]
+position = Vector2( 535.853, 339.918 )
 
 [node name="SpawnPoints" type="Node2D" parent="."]
-script = ExtResource( 7 )
+script = ExtResource( 6 )
 
-[node name="Spawn" parent="SpawnPoints" instance=ExtResource( 3 )]
+[node name="Spawn" parent="SpawnPoints" instance=ExtResource( 7 )]
 position = Vector2( -40.2806, 339.866 )
 
-[node name="Spawn2" parent="SpawnPoints" instance=ExtResource( 3 )]
+[node name="Spawn2" parent="SpawnPoints" instance=ExtResource( 7 )]
 position = Vector2( 412.874, 337.349 )
+
 [connection signal="all_players_spawned" from="SpawnPoints" to="." method="_on_SpawnPoints_all_players_spawned"]
 [connection signal="spawn_player" from="SpawnPoints" to="." method="_on_SpawnPoints_spawn_player"]
-
-[editable path="Walls/Wall2"]
-
-[editable path="Walls/Wall3"]
-
-[editable path="Walls/Wall4"]
 
 [editable path="Fencing/Fence"]

@@ -1,6 +1,5 @@
 extends Area2D
 
-var flag_data = []
 
-func _on_Area2D_body_entered(body):
-	flag_data = [body,self]
+func _on_Connector_connection_changed(val):
+	pass

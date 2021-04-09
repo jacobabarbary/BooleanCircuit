@@ -1,17 +1,17 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://gui/game.gd" type="Script" id=1]
-[ext_resource path="res://gui/popups/menu/Popup.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gui/buttons/exit.tscn" type="PackedScene" id=3]
-[ext_resource path="res://gui/popups/info/info.tscn" type="PackedScene" id=4]
-[ext_resource path="res://gui/buttons/next_level.tscn" type="PackedScene" id=5]
-[ext_resource path="res://gui/buttons/menu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://gui/buttons/reset.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gui/popups/info/info.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/popups/menu/Popup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/buttons/reset.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/buttons/menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gui/buttons/next_level.tscn" type="PackedScene" id=6]
+[ext_resource path="res://gui/buttons/exit.tscn" type="PackedScene" id=7]
 
 [node name="Gui" type="Control" groups=[
+"Win",
 "Pause",
 "ResetTimer",
-"Win",
 ]]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,7 +20,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Tips" parent="." instance=ExtResource( 4 )]
+[node name="Tips" parent="." instance=ExtResource( 2 )]
 anchor_left = 1.0
 anchor_top = 1.0
 margin_left = -400.0
@@ -41,10 +41,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Pause" parent="." instance=ExtResource( 2 )]
+[node name="Pause" parent="." instance=ExtResource( 3 )]
 title = "Pause"
-buttons = [ ExtResource( 7 ), ExtResource( 6 ) ]
+buttons = [ ExtResource( 4 ), ExtResource( 5 ) ]
 
-[node name="Win" parent="." instance=ExtResource( 2 )]
+[node name="Win" parent="." instance=ExtResource( 3 )]
 title = "Finished"
-buttons = [ ExtResource( 5 ), ExtResource( 7 ), ExtResource( 3 ) ]
+buttons = [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ) ]
+

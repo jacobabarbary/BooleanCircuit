@@ -1,6 +1,6 @@
 extends Node
 
-const MAX_LEVELS = 5
+const MAX_LEVELS = 6
 
 const PATHS = { 
 		'GUI' : 'res://gui/%s.tscn',

@@ -2,13 +2,13 @@ extends RigidBody2D
 
 const MAX_SPEED = 1200
 const DISCONNECTED_COLOR = Color.white
-var CHARGE_ROT = 0.2
+var CHARGE_ROT = 0.5
 
 export(int) var player_friction = 0.1
 
 var profile: Node = Profiles.get_default()
 var rot = 5
-var rot_mod = 1 
+var rot_mod = 1
 var speed = 180
 var charge = 1
 var is_frozen = false
