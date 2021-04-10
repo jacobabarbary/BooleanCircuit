@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="BooleanCircuit"
 run/main_scene="res://gui/menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://BooleanCircuit.png"
 
 [autoload]
 

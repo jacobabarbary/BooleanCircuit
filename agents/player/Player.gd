@@ -44,7 +44,7 @@ func _on_Connector_disconnected():
 	thrust.queue("idle")
 	body.modulate = DISCONNECTED_COLOR
 	get_tree().call_group("PlayerConnections","_on_player_disconnected", self)
-	
+
 func _on_profile_updated(_new_profile):
 	set_color(profile.color)
 	set_skin(profile.skin)

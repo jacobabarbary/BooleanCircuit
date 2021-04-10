@@ -1,7 +1,7 @@
 extends Node2D
 
 enum {X_O,PLUS_MINUS,KEY_LOCK}
-
+export var level_settings = {"freezing":false}
 var types = [X_O,PLUS_MINUS,KEY_LOCK]
 
 onready var players = $Players
@@ -18,4 +18,10 @@ func _on_SpawnPoints_spawn_player(player):
 	players.add_child(player)
 
 func _on_SpawnPoints_all_players_spawned():
-	camera.targets = get_camera_objects()
+	var camera_objects = get_camera_objects()
+	for i in camera_objects:
+		if "camera_object" in i:
+			if i.camera_object:
+				camera.targets.append(i)
+		else:
+			camera.targets.append(i)
