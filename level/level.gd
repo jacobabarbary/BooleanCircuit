@@ -1,7 +1,7 @@
 extends Node2D
 
 enum {X_O,PLUS_MINUS,KEY_LOCK}
-export var level_settings = {"freezing":false}
+export var level_settings = {"example_setting":true}
 var types = [X_O,PLUS_MINUS,KEY_LOCK]
 
 onready var players = $Players
