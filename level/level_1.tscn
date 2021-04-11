@@ -29,6 +29,13 @@ position = Vector2( 637.447, 417.641 )
 position = Vector2( -204.476, 32.8434 )
 polygon = PoolVector2Array( 47.9994, -30.3291, 99.9131, 86.2118, 17.275, 136.007, -127.871, 167.79, -220.045, 168.85, -108.801, 138.125, -9.21161, 66.082 )
 
+[node name="Walls2" parent="Fencing" instance=ExtResource( 2 )]
+position = Vector2( 811.288, 810.471 )
+
+[node name="CollisionPolygon2D" parent="Fencing/Walls2" index="0"]
+position = Vector2( -204.476, 96.3394 )
+polygon = PoolVector2Array( 47.9994, -30.3291, 238.838, -465.063, 115.16, -943.124, -120.302, -1247.56, -914.717, -1430.75, -1289.34, -957.707, -990.912, -268.775, -390.875, 207.445, -213.086, 220.145, -930.591, 286.816, -1263.95, -208.454, -1549.68, -1011.68, -1006.79, -1554.57, -79.8694, -1292.75, 278.745, -825.697, 331.718, -321.392, 99.9131, 86.2118, 17.275, 136.007, -143.685, 235.453, -343.246, 189.126, -108.801, 138.125, -9.21161, 66.082 )
+
 [node name="Players" type="Node2D" parent="."]
 
 [node name="Camera" parent="." instance=ExtResource( 4 )]
@@ -52,3 +59,5 @@ mass = 5.0
 [editable path="Fencing/Fence"]
 
 [editable path="Fencing/Walls"]
+
+[editable path="Fencing/Walls2"]
