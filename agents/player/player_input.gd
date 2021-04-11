@@ -1,7 +1,7 @@
 extends Node
 
 const TAP = 0.15
-const HOLD = 1.5
+const HOLD = 2
 
 var profile: Node = Profiles.get_default()
 var held = -1

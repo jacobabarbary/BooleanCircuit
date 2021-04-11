@@ -79,5 +79,14 @@ position = Vector2( 656.124, 1660.53 )
 
 [node name="ball" parent="." instance=ExtResource( 6 )]
 position = Vector2( 639.728, 298.704 )
+
+[node name="ball2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 749.912, 463.98 )
+
+[node name="ball3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 491.403, 468.218 )
+
+[node name="ball4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 639.728, 620.78 )
 [connection signal="all_players_spawned" from="SpawnPoints" to="." method="_on_SpawnPoints_all_players_spawned"]
 [connection signal="spawn_player" from="SpawnPoints" to="." method="_on_SpawnPoints_spawn_player"]
